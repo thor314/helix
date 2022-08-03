@@ -1,0 +1,9 @@
+
+[[language]]
+name = "rust"
+
+[config.rust-analyzer]
+imports.granularity.enforce = "true"
+checkOnSave.allTargets = "true"
+checkOnSave.features = "all"
+

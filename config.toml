@@ -1,0 +1,59 @@
+# https://docs.helix-editor.com/themes.html
+# dark: rose_pine, octagon, dracula, tokyonight, catppuccin, night_owl, meliora
+# light: ingrid, rose_pine_dawn, spacebones
+ theme = "dracula"
+
+# https://docs.helix-editor.com/configuration.html
+# scroll-lines = 1
+
+[editor.lsp]
+display-messages = true
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "underline"
+
+[keys.normal]
+# g = { a = "code_action" } # Maps `ga` to show possible code actions
+# "ret" = ["move_line_down", "goto_first_nonwhitespace"] # Maps the enter key to move to start of next line
+"C-/" = "toggle_comments" #nope
+C-c = "normal_mode"
+"/" = "toggle_comments"
+
+[keys.normal.space]
+r = ":format"
+R = "no_op"
+q = ":wq"
+"space" = [ ":w", ":config-reload" ]
+"/" = "toggle_comments"
+# "C-//" = "toggle_comments" #nope
+
+[keys.normal.space.c]
+a = ":open ~/.zsh.d/alias" 
+h = ":open ~/.config/helix/config.toml"
+l = ":open ~/.config/helix/languages.toml" 
+z = ":open ~/.zshrc" 
+
+[keys.insert]
+C-c = "normal_mode"
+"j" = { "j" = "normal_mode" }
+"k" = { "k" = "normal_mode" }
+
+
+### BUSTED ###
+# [[language]]
+# name = "rust"
+# config = {
+  # rust-analyzer.checkOnSave.enable = "true"
+# }
+
+# Notes
+# - enter inside a comment doesn't insert another comment (ditto, for md lists)
+# - enter inside option mode should select the highlighted option
+# keymaps 
+# - there should be a visual map of keybinds method, or at least:
+# - a "list_commands" method, have to go https://docs.helix-editor.com/keymap.html
+# - no "what's this key/variable/something" method/bind (C-h k/v) in emacs
+# - binding C-/, space commands don't seem to work
+# - 
