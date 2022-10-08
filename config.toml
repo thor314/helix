@@ -1,33 +1,76 @@
-# https://docs.helix-editor.com/themes.html
-# dark: rose_pine, octagon, dracula, tokyonight, catppuccin, night_owl, meliora
-# light: ingrid, rose_pine_dawn, spacebones
- theme = "dracula"
+theme = "dracula"
+# Notes:  erg = ergonamic; vl = vimlike; dft 
+# List keybinds in dvorak-layout order
 
-# https://docs.helix-editor.com/configuration.html
-# scroll-lines = 1
-
+[editor]
+idle-timeout = 200 # ms til idle-timers, eg autocomplete. dft 400
+[editor.statusline]
+left = ["spinner", "diagnostics"] # LSP activity
+center = ["file-name"]
+right = ["position", "separator", "position-percentage"]
 [editor.lsp]
-display-messages = true
-
+display-messages = true # display lsp progress messages below statusline
 [editor.cursor-shape]
 insert = "bar"
-normal = "block"
+normal = "block" # by dft, all are block
 select = "underline"
+[editor.file-picker]
+hidden = false # don't ignore hidden files
+[editor.auto-pairs] # enable automatic pair insertion. for lang-spec, use languages.toml.
+'(' = ')'
+'{' = '}'
+'[' = ']'
+'"' = '"'
+'`' = '`'
+# '<' = '>'
+[editor.indent-guides]
+render = true # show '|' character
 
+############
+## NORMAL ##
+############
 [keys.normal]
-# g = { a = "code_action" } # Maps `ga` to show possible code actions
-# "ret" = ["move_line_down", "goto_first_nonwhitespace"] # Maps the enter key to move to start of next line
-"C-/" = "toggle_comments" #nope
-C-c = "normal_mode"
+# underused: 'c=\ es-x @#^{}
+G = "goto_last_line" # vl
+a = ["save_selection", "append_to_line"] # annoying, but normal a wraps lines, this bad but better
+A = ["save_selection", "append_to_line"]
+t = ["delete_selection", "paste_after"] # transpose chars good
+T = "switch_case" # erg
+V = ["save_selection", "goto_line_start", "select_mode", "goto_line_end"] # vl; x selects next line too :(
+C-c = "normal_mode" # erg
+C-v = "paste_clipboard_after"
+
+[keys.normal.g] # goto should save jumplist position 
+"."=["save_selection","goto_last_modification"]
+y = ["save_selection","goto_type_definition"]
+f = ["save_selection","goto_file"]
+g = ["save_selection","goto_file_start"]
+c = ["save_selection","goto_window_center"]
+r = ["save_selection","goto_reference"]
+l = ["save_selection","goto_line_end"]
+L = ["save_selection","goto_line_end"]
+a = ["save_selection","goto_last_accessed_file"]
+o = "jump_backward"
+e = ["save_selection","goto_last_line"]
+i = ["save_selection","goto_implementation"]
+d = ["save_selection","goto_definition"]
+h = ["save_selection","goto_line_start"]
+t = ["save_selection","goto_window_top"]
+n = ["save_selection","goto_previous_buffer"]
+s = ["save_selection","goto_first_nonwhitespace"]
+b = ["save_selection","goto_window_bottom"]
+m = ["save_selection","goto_last_modified_file"]
+
+# Copy this section into C-t insert mode.
+[keys.normal."C-t"] # toggles
 "/" = "toggle_comments"
 
-[keys.normal.space]
+[keys.normal.space] # misc operators, temp
 r = ":format"
 R = "no_op"
 q = ":wq"
 "space" = [ ":w", ":config-reload" ]
 "/" = "toggle_comments"
-# "C-//" = "toggle_comments" #nope
 
 [keys.normal.space.c]
 a = ":open ~/.zsh.d/alias" 
@@ -35,25 +78,20 @@ h = ":open ~/.config/helix/config.toml"
 l = ":open ~/.config/helix/languages.toml" 
 z = ":open ~/.zshrc" 
 
+############
+## SELECT ##
+############
+
+[keys.select]
+c = "extend_line_below"
+G = "goto_last_line" # vl
+T = "switch_case"
+
+#############
+## INSERT ###
+#############
+
 [keys.insert]
 C-c = "normal_mode"
-"j" = { "j" = "normal_mode" }
-"k" = { "k" = "normal_mode" }
-
-
-### BUSTED ###
-# [[language]]
-# name = "rust"
-# config = {
-  # rust-analyzer.checkOnSave.enable = "true"
-# }
-
-# Notes
-# - enter inside a comment doesn't insert another comment (ditto, for md lists)
-# - enter inside option mode should select the highlighted option
-# keymaps 
-# - there should be a visual map of keybinds method, or at least:
-# - a "list_commands" method, have to go https://docs.helix-editor.com/keymap.html
-# - no "what's this key/variable/something" method/bind (C-h k/v) in emacs
-# - binding C-/, space commands don't seem to work
-# - 
+j = { j = "normal_mode" }
+k = { k = "normal_mode" }
