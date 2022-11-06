@@ -71,3 +71,5 @@ select region; s to subselect; ret; c; type replacemen
 - c (change) is weak in normal mode. It's generall. make it not weak
 
 
+
+
