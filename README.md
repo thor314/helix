@@ -1,5 +1,7 @@
 # helix notes
 ## tldr
+I don't use Helix much, because although I like the binding model, the context switching between where I do get to have Helix bindings and where I don't is too annoying. Having said that, I like the binding model very much.
+
 Kakoune is a rethinking of Vim's concept model with a noun-verb or rather select-noun-verb model, rather than a verb-modifier-noun model. Helix is an implementation in Rust, drawing on many of Kak's ideas for better ergonomics. The improvement in the new key-model is self evident. I'm also a biased enjoyor of a Rust-based open source TUI project.
 It's already a decent drop-in editor for Vim with some of the more useful plugins included by default (file explorer, pop up display ui on menu keys, surrounds), but without a scripting language, plugin system (as of yet 2022-10-08, though they're in the works), or GUI (unplanned), Helix won't be replacing my IDE any time soon. There are however, kakoune binding plugins in VScode and Neovim/vide that I might like to install.
 ## New keybinds and concepts coming from Vim
