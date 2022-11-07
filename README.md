@@ -69,3 +69,4 @@ select region; s to subselect; ret; c; type replacemen
 - consider remapping d to x, and x to v and v to V or s. 
 - normal bindings not respected in visual mode. eg: C-c mapping only works in normal mode, not visual mode
 - c (change) is weak in normal mode. It's generall. make it not weak
+
