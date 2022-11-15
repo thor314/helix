@@ -4,10 +4,10 @@ theme = "dracula"
 
 [editor]
 idle-timeout = 200 # ms til idle-timers, eg autocomplete. dft 400
-[editor.statusline]
-left = ["spinner", "diagnostics"] # LSP activity
-center = ["file-name"]
-right = ["position", "separator", "position-percentage"]
+# [editor.statusline] # buggy
+# left = ["spinner", "diagnostics"] # LSP activity
+# center = ["file-name"]
+# right = ["position", "separator", "position-percentage"]
 [editor.lsp]
 display-messages = true # display lsp progress messages below statusline
 [editor.cursor-shape]
@@ -22,7 +22,7 @@ hidden = false # don't ignore hidden files
 '[' = ']'
 '"' = '"'
 '`' = '`'
-# '<' = '>'
+'<' = '>'
 [editor.indent-guides]
 render = true # show '|' character
 
@@ -32,13 +32,15 @@ render = true # show '|' character
 [keys.normal]
 # underused: 'c=\ es-x @#^{}
 G = "goto_last_line" # vl
-a = ["save_selection", "append_to_line"] # annoying, but normal a wraps lines, this bad but better
-A = ["save_selection", "append_to_line"]
+# these cause helix to crash:
+# a = ["save_selection", "append_to_line"] # annoying, but normal a wraps lines, this bad but better
+# A = ["save_selection", "append_to_line"]
 t = ["delete_selection", "paste_after"] # transpose chars good
 T = "switch_case" # erg
 V = ["save_selection", "goto_line_start", "select_mode", "goto_line_end"] # vl; x selects next line too :(
 C-c = "normal_mode" # erg
 C-v = "paste_clipboard_after"
+# C-/ = "toggle_comments" # nope
 
 [keys.normal.g] # goto should save jumplist position 
 "."=["save_selection","goto_last_modification"]
@@ -62,28 +64,28 @@ b = ["save_selection","goto_window_bottom"]
 m = ["save_selection","goto_last_modified_file"]
 
 # Copy this section into C-t insert mode.
-[keys.normal."C-t"] # toggles
-"/" = "toggle_comments"
+# [keys.normal."C-t"] # toggles
+# "/" = "toggle_comments"
 
-[keys.normal.space] # misc operators, temp
-r = ":format"
-R = "no_op"
-q = ":wq"
-"space" = [ ":w", ":config-reload" ]
-"/" = "toggle_comments"
+# [keys.normal.space] # misc operators, temp
+# r = ":format"
+# R = "no_op"
+# q = ":wq"
+# "space" = [ ":w", ":config-reload" ]
+# "/" = "toggle_comments"
 
-[keys.normal.space.c]
-a = ":open ~/.zsh.d/alias" 
-h = ":open ~/.config/helix/config.toml"
-l = ":open ~/.config/helix/languages.toml" 
-z = ":open ~/.zshrc" 
+# [keys.normal.space.c]
+# a = ":open ~/.zsh.d/alias" 
+# h = ":open ~/.config/helix/config.toml"
+# l = ":open ~/.config/helix/languages.toml" 
+# z = ":open ~/.zshrc" 
 
 ############
 ## SELECT ##
 ############
 
 [keys.select]
-c = "extend_line_below"
+# c = "extend_line_below"
 G = "goto_last_line" # vl
 T = "switch_case"
 
