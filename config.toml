@@ -1,5 +1,6 @@
-theme = "dracula"
-
+# theme = "base16_terminal" # base16_terminal keeps base terminal display
+theme = "rose_pine" # catpuccin, dracula_at_night, everforest_dark, monokai_pro*, rose_pine are nice
+ 
 [editor]
 idle-timeout = 200 # ms til idle-timers, eg autocomplete. def:400
 
@@ -92,7 +93,7 @@ V = ["save_selection","extend_to_line_bounds"]
 # a = ["save_selection", "append_to_line"] 
 # A = ["save_selection", "append_to_line"]
 
-C-c = "normal_mode" # erg
+C-c = [":w", "normal_mode"]
 C-v = "paste_clipboard_after"
 # C-/ = "toggle_comments" # nope
 
@@ -164,6 +165,6 @@ T = "switch_case"
 #############
 
 [keys.insert]
-C-c = "normal_mode"
+C-c = [":w", "normal_mode"]
 j = { j = "normal_mode" }
 k = { k = "normal_mode" }
