@@ -1,5 +1,8 @@
 # theme = "base16_terminal" # base16_terminal keeps base terminal display
-theme = "rose_pine" # catpuccin, dracula_at_night, everforest_dark, monokai_pro*, rose_pine are nice
+theme = "catppuccin" # catpuccin, dracula_at_night, everforest_dark, monokai_pro*, rose_pine are nice
+
+# TODO
+# Can I configure hotkeys to execute shell commands?
  
 [editor]
 idle-timeout = 200 # ms til idle-timers, eg autocomplete. def:400
