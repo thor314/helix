@@ -1,21 +1,24 @@
 theme = "dracula"
-# Notes:  erg = ergonamic; vl = vimlike; dft 
-# List keybinds in dvorak-layout order
 
 [editor]
-idle-timeout = 200 # ms til idle-timers, eg autocomplete. dft 400
-# [editor.statusline] # buggy
-# left = ["spinner", "diagnostics"] # LSP activity
-# center = ["file-name"]
-# right = ["position", "separator", "position-percentage"]
+idle-timeout = 200 # ms til idle-timers, eg autocomplete. def:400
+
+[editor.statusline] 
+left = ["spinner", "diagnostics"] # LSP activity
+center = ["file-name"]
+# right = ["position", "separator", "position-percentage"] # bug
+
 [editor.lsp]
 display-messages = true # display lsp progress messages below statusline
+
 [editor.cursor-shape]
 insert = "bar"
-normal = "block" # by dft, all are block
+normal = "block" # by dflt, all are block
 select = "underline"
+
 [editor.file-picker]
 hidden = false # don't ignore hidden files
+
 [editor.auto-pairs] # enable automatic pair insertion. for lang-spec, use languages.toml.
 '(' = ')'
 '{' = '}'
@@ -23,6 +26,7 @@ hidden = false # don't ignore hidden files
 '"' = '"'
 '`' = '`'
 '<' = '>'
+
 [editor.indent-guides]
 render = true # show '|' character
 
@@ -30,22 +34,75 @@ render = true # show '|' character
 ## NORMAL ##
 ############
 [keys.normal]
-# underused: 'c=\ es-x @#^{}
-G = "goto_last_line" # vl
-# these cause helix to crash:
-# a = ["save_selection", "append_to_line"] # annoying, but normal a wraps lines, this bad but better
-# A = ["save_selection", "append_to_line"]
+C-a = ["save_selection", "select_all"]
+# Ctrl-o/O jump back/unmapped
+# Alt-o - expand selection to parent syntax note *useful*
+# e - normal. C-e/A-e unmapped.
+# C-i - jump fwd
+A-i = "increment"
+A-I = "decrement"
+# d/D - delete char/unmapped; may overwrite, prefer vim-compatibility with x
+# alt-d deletes word in insert mode, no-yank in normal mode
+# h/H - default
 t = ["delete_selection", "paste_after"] # transpose chars good
-T = "switch_case" # erg
-V = ["save_selection", "goto_line_start", "select_mode", "goto_line_end"] # vl; x selects next line too :(
+T = "switch_case" 
+# Ctrl-t - map to toggle menu. toggles preview in picker. 
+# n/N - next/prev in search (always nxt/prev, doesn't swap like vim)
+# alt-n selects next sibling in syntax tree
+# s/S - MAJOR DIFF - regex select in selection/split in selection
+# A-s - split on newlines 
+C-s = ":write" # would be nice to have an autosave :|
+# c-s/a-s - unmapped/unmapped
+# -/_ - unmapped
+# '/" - last fuzzy picker/register operator
+# ,/< - collapse multiple cursors/unindent
+# ./> - repeat/indent
+"A-." = ["save_selection","repeat_last_motion"] #  repeat last motion
+# p/P - paste before/after
+# a-p prev sibling in tree
+# y/Y - yank before/after
+# f/F - seek til
+f = ["save_selection", "find_next_char"]
+F = ["save_selection", "find_prev_char"]
+# g - goto operator/bottom (see below)
+G = "goto_last_line" 
+# c/C - change char/extend cursor down (change cursor down to operator?) 
+# r/R - replace char/not sure
+# l/L - left/unmapped
+# / ? - search fwd/back
+# =/+ - unmapped
+# \\/| - unmapped/pipe (call shell cmd)
+"A-/" = ":vsplit"
+"A-?" = ":hsplit"
+# !/Alt-! similar to above
+# ;/: - unclear/ex operand
+# q/Q - apply macro/record macro
+# j/J - vim default
+# k/K - vim default/unclear
+# x/X = bug: can't bind keys to extend_line_below, so keep this mapping; select line/select no wrap
+# A-x shrink selection - unclear what do
+# b/B - back/more back
+# m/M - select-mode/unmapped
+# w/W - fwd/more fwd
+V = ["save_selection","extend_to_line_bounds"] 
+# "V" = "extend_line_below" # bug, will crash
+# z/Z - adjust screen view mode/Sticky mode
+
+# these cause helix to crash:
+# a = ["save_selection", "append_to_line"] 
+# A = ["save_selection", "append_to_line"]
+
 C-c = "normal_mode" # erg
 C-v = "paste_clipboard_after"
 # C-/ = "toggle_comments" # nope
 
+# todo 
+# comment command
+
 [keys.normal.g] # goto should save jumplist position 
 "."=["save_selection","goto_last_modification"]
 y = ["save_selection","goto_type_definition"]
-f = ["save_selection","goto_file"]
+f = ["save_selection","goto_file"] # goto-file in selection, meh?
 g = ["save_selection","goto_file_start"]
 c = ["save_selection","goto_window_center"]
 r = ["save_selection","goto_reference"]
@@ -53,8 +110,8 @@ l = ["save_selection","goto_line_end"]
 L = ["save_selection","goto_line_end"]
 a = ["save_selection","goto_last_accessed_file"]
 o = "jump_backward"
-e = ["save_selection","goto_last_line"]
-i = ["save_selection","goto_implementation"]
+i = "jump_forward"
+I = ["save_selection","goto_implementation"]
 d = ["save_selection","goto_definition"]
 h = ["save_selection","goto_line_start"]
 t = ["save_selection","goto_window_top"]
@@ -64,29 +121,42 @@ b = ["save_selection","goto_window_bottom"]
 m = ["save_selection","goto_last_modified_file"]
 
 # Copy this section into C-t insert mode.
-# [keys.normal."C-t"] # toggles
-# "/" = "toggle_comments"
+[keys.normal."C-t"] # toggles
+"/" = "toggle_comments"
 
-# [keys.normal.space] # misc operators, temp
+[keys.normal.space] # misc operators, temp
 # r = ":format"
 # R = "no_op"
-# q = ":wq"
-# "space" = [ ":w", ":config-reload" ]
-# "/" = "toggle_comments"
+q = ":wq"
+"space" = ":w"
 
-# [keys.normal.space.c]
+[keys.normal.space.c]
 # a = ":open ~/.zsh.d/alias" 
-# h = ":open ~/.config/helix/config.toml"
+h = ":open ~/.config/helix/config.toml"
 # l = ":open ~/.config/helix/languages.toml" 
 # z = ":open ~/.zshrc" 
 
 ############
 ## SELECT ##
 ############
+# Alt-o - expand selection to parent syntax note *useful*
+# alt-n selects next sibling in syntax tree
+# s/S - MAJOR DIFF - regex select in selection/split in selection
+# Alt-s split on newlines
+# & - align cursors
+# _ - trim whitespace from selection
+# ; - collapse selection 
+# C - extend cursor down
+# A-C - cursor up
+# (,) - rotate primary cursor
+# A-(/) - rotate selections (seems like this would b hard to use)
+# % or C-a - select all
+# K - keep selections matching regex (narrow selections)
+# A-K - remove selections matching regex
+# 
 
 [keys.select]
-# c = "extend_line_below"
-G = "goto_last_line" # vl
+G = "goto_last_line" 
 T = "switch_case"
 
 #############
