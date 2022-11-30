@@ -3,6 +3,8 @@ theme = "catppuccin" # catpuccin, dracula_at_night, everforest_dark, monokai_pro
 
 # TODO
 # Can I configure hotkeys to execute shell commands?
+# Configure default display lang to shell 
+# How to give multi-command functions alieses in menu
  
 [editor]
 idle-timeout = 200 # ms til idle-timers, eg autocomplete. def:400
@@ -132,7 +134,7 @@ m = ["save_selection","goto_last_modified_file"]
 # r = ":format"
 # R = "no_op"
 q = ":wq"
-"space" = ":w"
+q = ":wq"
 
 [keys.normal.space.c]
 # a = ":open ~/.zsh.d/alias" 
