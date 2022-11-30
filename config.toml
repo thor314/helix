@@ -5,6 +5,8 @@ theme = "catppuccin" # catpuccin, dracula_at_night, everforest_dark, monokai_pro
 # Can I configure hotkeys to execute shell commands?
 # Configure default display lang to shell 
 # How to give multi-command functions alieses in menu
+# completions
+# keymaps to open common files
  
 [editor]
 idle-timeout = 200 # ms til idle-timers, eg autocomplete. def:400
