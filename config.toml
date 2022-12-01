@@ -1,20 +1,18 @@
 # catpuccin, dracula_at_night, everforest_dark, monokai_pro*, rose_pine are nice aesthetically
 # common pitfall: some themes don't display primary cursor well
-# theme = "base16_terminal" # transparent! But need to tweak colors and pcursor
-# theme = "catppuccin" # dark grey tint; doesn't show primary cursor well
-# theme = "monokai_pro_machine" # green tint
+# theme = "base16_terminal" # transparent! But need to tweak colors (too green text) and pcursor
+# theme = "catppuccin" # dark grey tint; doesn't show pcursor
+theme = "monokai_pro_machine" # green tint
 # theme = "monokai_pro_octagon" # grey tint
 # theme = "monokai_pro_spectrum" # darker grey than octagon
-theme = "rose_pine"
+# theme = "rose_pine" # dark purple, doesn't show pc well
 
 
 # key cheatsheet: https://cheatography.com/hiddenmonkey/cheat-sheets/helix/
 #### TODO ####
 # Can I configure hotkeys to execute shell commands?
-# Configure default display lang to shell 
-# How to give multi-command functions alieses in menu
-# completions
-# keymaps to open common files
+# How to give multi-command functions aliases in menu
+# completions?
  
 [editor]
 idle-timeout = 200 # ms til idle-timers, eg autocomplete. def:400
