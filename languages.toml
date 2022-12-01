@@ -1,6 +1,11 @@
-[[language]]
+# My language configurations
+# https://docs.helix-editor.com/languages.html
+
+[[language]] 
 name = "markdown"
-max-line-length = 100
+file-types = ["md"]
+# :( no effect:
+max-line-length = 100 
 
 [[language]]
 name = "rust"
@@ -9,4 +14,5 @@ name = "rust"
 imports.granularity.enforce = "true"
 checkOnSave.allTargets = "true"
 checkOnSave.features = "all"
+# indent = { tab-width = "    " }
 

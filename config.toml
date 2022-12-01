@@ -142,6 +142,7 @@ m = ["save_selection","goto_last_modified_file"]
 [keys.normal."C-t"] # toggles (maybe)
 
 [keys.normal.space] # misc operators, temp
+space = ":w"
 p = "paste_clipboard_before" # swap these
 P = "paste_clipboard_after"
 q = ":wq"
