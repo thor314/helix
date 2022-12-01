@@ -135,7 +135,7 @@ m = ["save_selection","goto_last_modified_file"]
 q = ":wq"
 
 [keys.normal.space.c]
-a = ":open ~/.files/fish/cond.d/alias.fish"
+a = ":open ~/.files/fish/conf.d/alias.fish"
 A = ":open ~/.files/alacritty/alacritty.yml"
 c = ":config-open"
 d = ":open ~/.files/install.conf.yaml"
