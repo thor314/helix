@@ -1,5 +1,6 @@
 
-[[language]]
+[[r the reading queue - 1
+ulanguage]]
 name = "rust"
 
 [config.rust-analyzer]

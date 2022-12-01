@@ -81,6 +81,7 @@ F = ["save_selection", "find_prev_char"]
 # g - goto operator/bottom (see below)
 G = "goto_last_line" 
 # c/C - change char/extend cursor down (change cursor down to operator?) 
+C-c = [":w", "normal_mode"]
 A-c = "toggle_comments" # 
 # r/R - replace char/not sure
 # l/L - left/unmapped
@@ -99,16 +100,15 @@ A-c = "toggle_comments" #
 # b/B - back/more back
 # m/M - select-mode/unmapped
 # w/W - fwd/more fwd
-V = ["save_selection","extend_to_line_bounds"] 
 # "V" = "extend_line_below" # bug, will crash
+V = ["save_selection","extend_to_line_bounds"] 
+C-V = "paste_clipboard_after"
 # z/Z - adjust screen view mode/Sticky mode
 
 # these cause helix to crash:
 # a = ["save_selection", "append_to_line"] 
 # A = ["save_selection", "append_to_line"]
 
-C-c = [":w", "normal_mode"]
-C-v = "paste_clipboard_after"
 # C-/ = "toggle_comments" # nope
 
 
