@@ -116,7 +116,6 @@ V = ["save_selection","extend_to_line_bounds"]
 
 # C-/ = "toggle_comments" # nope
 
-
 [keys.normal.g] # goto should save jumplist position 
 "."=["save_selection","goto_last_modification"]
 y = ["save_selection","goto_type_definition"]
@@ -140,6 +139,11 @@ m = ["save_selection","goto_last_modified_file"]
 
 # Copy this section into C-t insert mode.
 [keys.normal."C-t"] # toggles (maybe)
+
+[keys.normal."["]
+space = ["move_char_left", "insert_mode", "space", "normal_mode"]
+[keys.normal."]"]
+space = ["move_char_right", "insert_mode", "space", "normal_mode"]
 
 [keys.normal.space] # misc operators, temp
 space = ":w"
