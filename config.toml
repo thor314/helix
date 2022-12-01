@@ -1,8 +1,8 @@
+theme = "monokai_pro_machine" # green tint
 # catpuccin, dracula_at_night, everforest_dark, monokai_pro*, rose_pine are nice aesthetically
 # common pitfall: some themes don't display primary cursor well
 # theme = "base16_terminal" # transparent! But need to tweak colors (too green text) and pcursor
 # theme = "catppuccin" # dark grey tint; doesn't show pcursor
-theme = "monokai_pro_machine" # green tint
 # theme = "monokai_pro_octagon" # grey tint
 # theme = "monokai_pro_spectrum" # darker grey than octagon
 # theme = "rose_pine" # dark purple, doesn't show pc well
@@ -67,7 +67,8 @@ T = "switch_case"
 # A-s - split on newlines 
 C-s = ":write" # would be nice to have an autosave :|
 # c-s/a-s - unmapped/unmapped
-# -/_ - unmapped
+# -/_ - unmapped/trim whitespace from selection
+# "-" = "toggle_comments 
 # '/" - last fuzzy picker/register operator
 # ,/< - collapse multiple cursors/unindent
 # ./> - repeat/indent
@@ -91,7 +92,7 @@ A-c = "toggle_comments" #
 "A-/" = ":vsplit"
 "A-?" = ":hsplit"
 # !/Alt-! similar to above
-# ;/: - unclear/ex operand
+# ;/: - collapse selection/ex operand
 # q/Q - apply macro/record macro
 # j/J - vim default
 # k/K - vim default/unclear
