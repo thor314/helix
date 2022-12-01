@@ -47,6 +47,7 @@ render = true # show '|' character
 ############
 ## NORMAL ##
 ############
+# don't bind Ctrl-Alt, use those in Alacritty binds, which can collide w/ helix binds
 # use space-c-space to reload and test
 [keys.normal]
 C-a = ["save_selection", "select_all"] # also see %
