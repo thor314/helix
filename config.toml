@@ -134,19 +134,17 @@ m = ["save_selection","goto_last_modified_file"]
 "/" = "toggle_comments"
 
 [keys.normal.space] # misc operators, temp
-# r = ":format"
-# R = "no_op"
-q = ":wq"
 q = ":wq"
 
 [keys.normal.space.c]
 a = ":open ~/.files/fish/cond.d/alias.fish"
+A = ":open ~/.files/alacritty/alacritty.yml"
 c = ":config-open"
 d = ":open ~/.files/install.conf.yaml"
+f = ":open ~/.files/fish/config.fish"
 l = ":open ~/.config/helix/languages.toml" 
-space = ":config-reload"
-
 # z = ":open ~/.zshrc" 
+space = ":config-reload"
 
 ############
 ## SELECT ##
