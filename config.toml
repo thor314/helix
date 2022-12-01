@@ -56,6 +56,7 @@ C-a = ["save_selection", "select_all"]
 A-i = "increment"
 A-I = "decrement"
 # d/D - delete char/unmapped; may overwrite, prefer vim-compatibility with x
+D = [""]
 # alt-d deletes word in insert mode, no-yank in normal mode
 # h/H - default
 t = ["delete_selection", "paste_after"] # transpose chars good
@@ -68,7 +69,8 @@ T = "switch_case"
 C-s = ":write" # would be nice to have an autosave :|
 # c-s/a-s - unmapped/unmapped
 # -/_ - unmapped/trim whitespace from selection
-# "-" = "toggle_comments 
+# "-" = "toggle_comments # bug nopa nope
+# "-" = "toggle_comments # bug nopa nope
 # '/" - last fuzzy picker/register operator
 # ,/< - collapse multiple cursors/unindent
 # ./> - repeat/indent
