@@ -1,7 +1,8 @@
 theme = "base16_terminal" # base16_terminal keeps base terminal display
 # theme = "catppuccin" # catpuccin, dracula_at_night, everforest_dark, monokai_pro*, rose_pine are nice
+# key cheatsheet: https://cheatography.com/hiddenmonkey/cheat-sheets/helix/
 
-# TODO
+# aTODOa
 # Can I configure hotkeys to execute shell commands?
 # Configure default display lang to shell 
 # How to give multi-command functions alieses in menu
@@ -75,7 +76,7 @@ F = ["save_selection", "find_prev_char"]
 # g - goto operator/bottom (see below)
 G = "goto_last_line" 
 # c/C - change char/extend cursor down (change cursor down to operator?) 
-A-c = "toggle_comments" # nope
+A-c = "toggle_comments" # 
 # r/R - replace char/not sure
 # l/L - left/unmapped
 # / ? - search fwd/back
@@ -105,8 +106,6 @@ C-c = [":w", "normal_mode"]
 C-v = "paste_clipboard_after"
 # C-/ = "toggle_comments" # nope
 
-# todo 
-# comment command
 
 [keys.normal.g] # goto should save jumplist position 
 "."=["save_selection","goto_last_modification"]
@@ -130,8 +129,7 @@ b = ["save_selection","goto_window_bottom"]
 m = ["save_selection","goto_last_modified_file"]
 
 # Copy this section into C-t insert mode.
-[keys.normal."C-t"] # toggles
-"/" = "toggle_comments"
+[keys.normal."C-t"] # toggles (maybe)
 
 [keys.normal.space] # misc operators, temp
 q = ":wq"
@@ -143,7 +141,9 @@ c = ":config-open"
 d = ":open ~/.files/install.conf.yaml"
 f = ":open ~/.files/fish/config.fish"
 l = ":open ~/.config/helix/languages.toml" 
-# z = ":open ~/.zshrc" 
+v = ":open ~/.files/vimrc"
+V = ":open ~/note2/.obsidian.vimrc"
+z = ":open ~/.zshrc" 
 space = ":config-reload"
 
 ############
@@ -163,7 +163,7 @@ space = ":config-reload"
 # % or C-a - select all
 # K - keep selections matching regex (narrow selections)
 # A-K - remove selections matching regex
-# 
+# A-(hljk) - TS select next prev
 
 [keys.select]
 G = "goto_last_line" 
