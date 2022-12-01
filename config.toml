@@ -7,7 +7,6 @@ theme = "monokai_pro_machine" # green tint
 # theme = "monokai_pro_spectrum" # darker grey than octagon
 # theme = "rose_pine" # dark purple, doesn't show pc well
 
-
 # key cheatsheet: https://cheatography.com/hiddenmonkey/cheat-sheets/helix/
 #### TODO ####
 # Can I configure hotkeys to execute shell commands?
@@ -108,7 +107,7 @@ A-c = "toggle_comments" #
 # w/W - fwd/more fwd
 # "V" = "extend_line_below" # bug, will crash
 V = ["save_selection","extend_to_line_bounds"] 
-# C-V = "paste_clipboard_after"
+# C-V = "paste_clipboard_before" # bug: nope
 # z/Z - adjust screen view mode/Sticky mode
 "%" = ["save_selection", "select_all"] # also see %
 # these cause helix to crash:
@@ -143,6 +142,8 @@ m = ["save_selection","goto_last_modified_file"]
 [keys.normal."C-t"] # toggles (maybe)
 
 [keys.normal.space] # misc operators, temp
+p = "paste_clipboard_before" # swap these
+P = "paste_clipboard_after"
 q = ":wq"
 
 [keys.normal.space.c]
@@ -152,6 +153,10 @@ c = ":config-open"
 d = ":open ~/.files/install.conf.yaml"
 f = ":open ~/.files/fish/config.fish"
 l = ":open ~/.config/helix/languages.toml" 
+K = ":open ~/.setup/clones/helix/book/src/keymap.md"
+C = ":open ~/.setup/clones/helix/book/src/commands.md"
+s = ":open ~/.setup/install.sh"
+u = ":open ~/.setup/unsorted.sh"
 v = ":open ~/.files/vimrc"
 V = ":open ~/note2/.obsidian.vimrc"
 z = ":open ~/.zshrc" 
