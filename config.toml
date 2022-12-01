@@ -1,8 +1,8 @@
-theme = "base16_terminal" # base16_terminal keeps base terminal display
-# theme = "catppuccin" # catpuccin, dracula_at_night, everforest_dark, monokai_pro*, rose_pine are nice
+# theme = "base16_terminal" # base16_terminal keeps base terminal display
+theme = "catppuccin" # catpuccin, dracula_at_night, everforest_dark, monokai_pro*, rose_pine are nice
 # key cheatsheet: https://cheatography.com/hiddenmonkey/cheat-sheets/helix/
 
-# aTODOa
+# aTODO
 # Can I configure hotkeys to execute shell commands?
 # Configure default display lang to shell 
 # How to give multi-command functions alieses in menu
