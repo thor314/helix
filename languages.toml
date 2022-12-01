@@ -1,3 +1,6 @@
+[[language]]
+name = "markdown"
+max-line-length = 100
 
 [[language]]
 name = "rust"
