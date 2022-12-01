@@ -1,5 +1,5 @@
-# theme = "base16_terminal" # base16_terminal keeps base terminal display
-theme = "catppuccin" # catpuccin, dracula_at_night, everforest_dark, monokai_pro*, rose_pine are nice
+theme = "base16_terminal" # base16_terminal keeps base terminal display
+# theme = "catppuccin" # catpuccin, dracula_at_night, everforest_dark, monokai_pro*, rose_pine are nice
 
 # TODO
 # Can I configure hotkeys to execute shell commands?
@@ -75,6 +75,7 @@ F = ["save_selection", "find_prev_char"]
 # g - goto operator/bottom (see below)
 G = "goto_last_line" 
 # c/C - change char/extend cursor down (change cursor down to operator?) 
+A-c = "toggle_comments" # nope
 # r/R - replace char/not sure
 # l/L - left/unmapped
 # / ? - search fwd/back
@@ -139,9 +140,12 @@ q = ":wq"
 q = ":wq"
 
 [keys.normal.space.c]
-# a = ":open ~/.zsh.d/alias" 
-h = ":open ~/.config/helix/config.toml"
-# l = ":open ~/.config/helix/languages.toml" 
+a = ":open ~/.files/fish/cond.d/alias.fish"
+c = ":config-open"
+d = ":open ~/.files/install.conf.yaml"
+l = ":open ~/.config/helix/languages.toml" 
+space = ":config-reload"
+
 # z = ":open ~/.zshrc" 
 
 ############
