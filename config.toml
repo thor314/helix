@@ -72,8 +72,8 @@ C-s = ":write" # would be nice to have an autosave :|
 # c-s/a-s - unmapped/unmapped
 # -/_ - unmapped/trim whitespace from selection
 # "-" = "toggle_comments # bug nopa nope
-# "-" = "toggle_comments # bug nopa nope
-# '/" - last fuzzy picker/register operator
+# '-' = "toggle_comments"
+# '/' - last fuzzy picker/register operator
 # ,/< - collapse multiple cursors/unindent
 # ./> - repeat/indent
 "A-." = ["save_selection","repeat_last_motion"] #  repeat last motion
