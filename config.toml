@@ -146,7 +146,15 @@ m = ["save_selection","goto_last_modified_file"]
 # space = ["move_char_right", "insert_mode", "space", "normal_mode"]
 
 [keys.normal."A-b"]
-q = [:buffer-close"
+q = ":buffer-close" # also :bc
+A-q = ":buffer-close!" # also :bc!
+# c = ":vsplit-new scratch" # new buffer in split # bug - runtime error
+C = ":new" # scratch buffer
+n = ":buffer-next"
+p = ":buffer-previous"
+k = ":buffer-next"
+j = ":buffer-previous"
+s = ":write-all" # write all buffers
 
 
 [keys.normal.space] # misc operators, temp
@@ -154,6 +162,7 @@ space = ":w"
 p = "paste_clipboard_before" # swap these
 P = "paste_clipboard_after"
 q = ":wq"
+# o = ":cd" # have to provide a dir
 
 [keys.normal.space.c]
 a = ":open ~/.files/fish/conf.d/alias.fish"
