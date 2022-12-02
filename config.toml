@@ -57,6 +57,11 @@ C-a = ["save_selection", "select_all"] # also see %
 A-i = "increment"
 A-I = "decrement"
 # d/D - delete char/unmapped; may overwrite, prefer vim-compatibility with x
+d = ["yank_joined_to_clipboard", "delete_selection"]
+y = "yank_joined_to_clipboard"
+
+yank_joined_to_clipboard
+primary_clipboard_yank"
 D = ["extend_to_line_bounds", "yank", "paste_after", "move_line_down"] # duplicate line
 # alt-d deletes word in insert mode, no-yank in normal mode
 # h/H - default
@@ -174,7 +179,7 @@ d = ":open ~/.files/install.conf.yaml"
 f = ":open ~/.files/fish/config.fish"
 l = ":open ~/.config/helix/languages.toml" 
 K = ":open ~/.setup/clones/helix/book/src/keymap.md"
-C = ":open ~/.setup/clones/helix/book/src/commands.md"
+C = ":open ~/.setup/clones/helix/book/src/generated/typable-cmd.md"
 s = ":open ~/.setup/install.sh"
 u = ":open ~/.setup/unsorted.sh"
 v = ":open ~/.files/vimrc"
