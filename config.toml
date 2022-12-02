@@ -156,6 +156,8 @@ k = ":buffer-next"
 j = ":buffer-previous"
 s = ":write-all" # write all buffers
 
+[keys.normal."C-m"]
+f = ":fmt"
 
 [keys.normal.space] # misc operators, temp
 space = ":w"
