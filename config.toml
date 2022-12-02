@@ -211,5 +211,5 @@ T = "switch_case"
 
 [keys.insert]
 C-c = [":w", "normal_mode"]
-j = { j = "normal_mode" }
-k = { k = "normal_mode" }
+# j = { j = "normal_mode" } # more annoying in helix than vim
+# k = { k = "normal_mode" }
