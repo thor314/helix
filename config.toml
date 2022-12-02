@@ -145,6 +145,10 @@ m = ["save_selection","goto_last_modified_file"]
 # [keys.normal."]"]
 # space = ["move_char_right", "insert_mode", "space", "normal_mode"]
 
+[keys.normal."A-b"]
+q = [:buffer-close"
+
+
 [keys.normal.space] # misc operators, temp
 space = ":w"
 p = "paste_clipboard_before" # swap these
