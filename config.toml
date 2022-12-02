@@ -140,10 +140,10 @@ m = ["save_selection","goto_last_modified_file"]
 # Copy this section into C-t insert mode.
 [keys.normal."C-t"] # toggles (maybe)
 
-[keys.normal."["]
-space = ["move_char_left", "insert_mode", "space", "normal_mode"]
-[keys.normal."]"]
-space = ["move_char_right", "insert_mode", "space", "normal_mode"]
+# [keys.normal."["]
+# space = ["move_char_left", "insert_mode", "space", "normal_mode"]
+# [keys.normal."]"]
+# space = ["move_char_right", "insert_mode", "space", "normal_mode"]
 
 [keys.normal.space] # misc operators, temp
 space = ":w"
