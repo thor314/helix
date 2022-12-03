@@ -17,7 +17,7 @@ theme = "monokai_pro_machine" # green tint
 idle-timeout = 200 # ms til idle-timers, eg autocomplete. def:400
 
 [editor.statusline] 
-left = ["spinner", "diagnostics"] # LSP activity
+left = ["mode", "spinner", "diagnostics"] # LSP activity
 center = ["file-name"]
 # right = ["position", "separator", "position-percentage"] # bug
 
@@ -205,7 +205,7 @@ space = ":config-reload"
 # A-(hljk) - TS select next prev
 
 [keys.select]
-V = "move_line_down"
+V = "move_line_down" # bug, won't hold last line in selection
 G = "goto_last_line" 
 T = "switch_case"
 C-c = "normal_mode"
