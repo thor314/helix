@@ -87,7 +87,7 @@ F = ["save_selection", "find_prev_char"]
 G = "goto_last_line" 
 # c/C - change char/extend cursor down (change cursor down to operator?) 
 C-c = [":w", "normal_mode"]
-A-c = "toggle_comments" # 
+A-c = "toggle_comments" 
 # r/R - replace char/not sure
 # l/L - left/unmapped
 # / ? - search fwd/back
@@ -107,7 +107,8 @@ A-c = "toggle_comments" #
 # m/M - select-mode/unmapped
 # w/W - fwd/more fwd
 # "V" = "extend_line_below" # bug, will crash
-V = ["save_selection","extend_to_line_bounds"] 
+V = ["save_selection","goto_line_start","select_mode", "goto_line_end"] 
+# V = ["save_selection","goto_line_start","select_mode","move_line_down"] 
 # C-V = "paste_clipboard_before" # bug: nope
 # z/Z - adjust screen view mode/Sticky mode
 "%" = ["save_selection", "select_all"] # also see %
@@ -204,8 +205,10 @@ space = ":config-reload"
 # A-(hljk) - TS select next prev
 
 [keys.select]
+V = "move_line_down"
 G = "goto_last_line" 
 T = "switch_case"
+C-c = "normal_mode"
 
 #############
 ## INSERT ###
