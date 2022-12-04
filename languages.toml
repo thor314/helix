@@ -14,22 +14,16 @@ name = "rust"
 
 [language.config] 
 # https://github.com/rust-lang/rust-analyzer/blob/master/docs/user/generated_config.adoc
-checkOnSave.command = "clippy" 
-check
+checkOnSave.command = "clippy" # d: "check"
 # Whether to enforce the import granularity setting for all files. If set to false rust-analyzer will try to keep import styles consistent per file.
-imports.granularity.enforce = "true"
-# checkOnSave.allTargets = "true"
-# checkOnSave.features = "all"
-# indent = { tab-width = "    " }
-    # "rust-analyzer.checkOnSave.enable": true, // disabling this also disables inline error lens
-    # "rust-analyzer.checkOnSave.command": "clippy", 
-    # // "rust-analyzer.checkOnSave.command": "test", 
-    # // "rust-analyzer.checkOnSave.command": "check", // use this to enable inline errors in test modules
-    # //
-    # // Other features:
-    # "rust-analyzer.checkOnSave.allTargets": true, // disabling will disable checks for #[cfg(test)], or WASM, etc
-    # "rust-analyzer.checkOnSave.features": "all", // check all features, disabling eliminates editor checks on features
-    # "rust-analyzer.diagnostics.experimental.enable": false, // def: false, match <>
-    # "rust-analyzer.imports.granularity.enforce": true, // group imports
-    # "rust-analyzer.rustfmt.rangeFormatting.enable": true, // get rid of this line when rangeformatting goes stable
-    # "rust-analyzer.typing.autoClosingAngleBrackets.enable": false, // Can't get VS code to intelligently skip '>'
+imports.granularity.enforce = true # d: false
+# Check all targets and tests (--all-targets). disable to speed checks.
+checkOnSave.allTargets = true # d: true
+# List of features to activate (eg test, wasm). disable to speed checks.
+checkOnSave.features = "all" # d: null
+# Whether to show experimental rust-analyzer diagnostics that might have more false positives than usual.
+diagnostics.experimental.enable = true # d: false
+# Whether to show inlay type hints for variables.
+inlayHints.typeHints.enable = true # d: true
+
+# "rust-analyzer.typing.autoClosingAngleBrackets.enable": false, // Can't get VS code to intelligently skip '>'
