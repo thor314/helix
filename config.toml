@@ -165,10 +165,10 @@ q = ":wq"
 # o = ":cd" # have to provide a dir 
 
 [keys.normal.'[']
-space = [ ":insert-output echo ' '", "delete_char_backward"]
+space = [ ":insert-output echo -n ' '" ]
 
 [keys.normal.']']
-space = ["move_char_right", ":insert-output echo ' '", "delete_char_backward", "move_char_left"]
+space = ["move_char_right", ":insert-output echo -n ' '", "move_char_left"]
 
 [keys.normal.space.c]
 a = ":open ~/.files/fish/conf.d/alias.fish"
