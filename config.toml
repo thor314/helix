@@ -117,6 +117,7 @@ V = ["save_selection","goto_line_start","select_mode", "goto_line_end"]
 # A = ["save_selection", "append_to_line"]
 
 # C-/ = "toggle_comments" # nope
+"C-space" = "goto_line_start
 
 [keys.normal.g] # goto should save jumplist position 
 "."=["save_selection","goto_last_modification"]
