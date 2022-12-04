@@ -50,9 +50,6 @@ render = true # show '|' character
 # use space-c-space to reload and test
 [keys.normal]
 # C-a = ["save_selection", "select_all"] # also see %
-# C-a = "completion" # test 2022-12-03
-# A-a = "completion"
-A-e = "completion"
 # Ctrl-o/O jump back/unmapped
 # Alt-o - expand selection to parent syntax note *useful*
 # e - normal. C-e/A-e unmapped.
@@ -105,6 +102,7 @@ A-c = "toggle_comments"
 # j/J - vim default
 # k/K - vim default/unclear
 # x/X = bug: can't bind keys to extend_line_below, so keep this mapping; select line/select no wrap
+# C-x bug: can't bind anything else to "completion"
 # A-x shrink selection - unclear what do
 # b/B - back/more back
 # m/M - select-mode/unmapped
@@ -143,12 +141,7 @@ b = ["save_selection","goto_window_bottom"]
 m = ["save_selection","goto_last_modified_file"]
 
 # Copy this section into C-t insert mode.
-[keys.normal."C-t"] # toggles (maybe)
-
-# [keys.normal."["]
-# space = ["move_char_left", "insert_mode", "space", "normal_mode"]
-# [keys.normal."]"]
-# space = ["move_char_right", "insert_mode", "space", "normal_mode"]
+#[keys.normal."C-t"] # toggles (maybe)
 
 [keys.normal."A-b"]
 q = ":buffer-close" # also :bc
@@ -169,7 +162,13 @@ space = ":w"
 p = "paste_clipboard_before" # swap these
 P = "paste_clipboard_after"
 q = ":wq"
-# o = ":cd" # have to provide a dir
+# o = ":cd" # have to provide a dir 
+
+[keys.normal.'[']
+space = [ ":insert-output echo ' '", "delete_char_backward"]
+
+[keys.normal.']']
+space = ["move_char_right", ":insert-output echo ' '", "delete_char_backward", "move_char_left"]
 
 [keys.normal.space.c]
 a = ":open ~/.files/fish/conf.d/alias.fish"
