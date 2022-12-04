@@ -17,9 +17,9 @@ theme = "monokai_pro_machine" # green tint
 idle-timeout = 200 # ms til idle-timers, eg autocomplete. def:400
 
 [editor.statusline] 
-left = ["mode", "spinner", "diagnostics"] # LSP activity
+# left = ["mode", "spinner", "diagnostics"] # LSP activity
+left = ["spinner", "diagnostics"] # LSP activity
 center = ["file-name"]
-# right = ["position", "separator", "position-percentage"] # bug
 
 [editor.lsp]
 display-messages = true # display lsp progress messages below statusline
@@ -49,7 +49,9 @@ render = true # show '|' character
 # don't bind Ctrl-Alt, use those in Alacritty binds, which can collide w/ helix binds
 # use space-c-space to reload and test
 [keys.normal]
-C-a = ["save_selection", "select_all"] # also see %
+# C-a = ["save_selection", "select_all"] # also see %
+C-a = "completion" # test 2022-12-03
+A-a = "completion"
 # Ctrl-o/O jump back/unmapped
 # Alt-o - expand selection to parent syntax note *useful*
 # e - normal. C-e/A-e unmapped.
@@ -117,7 +119,6 @@ V = ["save_selection","goto_line_start","select_mode", "goto_line_end"]
 # A = ["save_selection", "append_to_line"]
 
 # C-/ = "toggle_comments" # nope
-"C-space" = "goto_line_start
 
 [keys.normal.g] # goto should save jumplist position 
 "."=["save_selection","goto_last_modification"]
