@@ -12,17 +12,15 @@ max-line-length = 100
 # listed options: https://github.com/rust-lang/rust-analyzer/blob/master/docs/user/generated_config.adoc
 name = "rust"
 
-[config.rust-analyzer]
-
-
-    # Whether to enforce the import granularity setting for all files. If set to false rust-analyzer will try to keep import styles consistent per file.
-    
+[language.config] 
+# https://github.com/rust-lang/rust-analyzer/blob/master/docs/user/generated_config.adoc
+checkOnSave.command = "clippy" 
+check
+# Whether to enforce the import granularity setting for all files. If set to false rust-analyzer will try to keep import styles consistent per file.
 imports.granularity.enforce = "true"
-checkOnSave.allTargets = "true"
-checkOnSave.features = "all"
-checkOnSave.command = "clippy"
+# checkOnSave.allTargets = "true"
+# checkOnSave.features = "all"
 # indent = { tab-width = "    " }
-    # "cargo.automaticCheck": false, // def: true; unclear function when checkonsave true, sometimes lags
     # "rust-analyzer.checkOnSave.enable": true, // disabling this also disables inline error lens
     # "rust-analyzer.checkOnSave.command": "clippy", 
     # // "rust-analyzer.checkOnSave.command": "test", 
@@ -35,11 +33,3 @@ checkOnSave.command = "clippy"
     # "rust-analyzer.imports.granularity.enforce": true, // group imports
     # "rust-analyzer.rustfmt.rangeFormatting.enable": true, // get rid of this line when rangeformatting goes stable
     # "rust-analyzer.typing.autoClosingAngleBrackets.enable": false, // Can't get VS code to intelligently skip '>'
-    # "[rust]": {
-    #     // language keywords tend to get in way of snippets, but are useful in less familiar languages
-    #     "editor.suggest.showKeywords": false,
-    #     "editor.defaultFormatter": "rust-lang.rust-analyzer",
-    # },
-    # // I'm finding this feature buggy. Prefer VS code-default snippets.
-    # // "rust-analyzer.completion.snippets.custom": { },
-    # "editor.inlayHints.enabled": "offUnlessPressed", // toggle with ctrl-alt
