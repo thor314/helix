@@ -15,7 +15,7 @@ theme = "monokai_pro_machine" # green tint
  
 [editor]
 idle-timeout = 200 # ms til idle-timers, eg autocomplete. def:400
-
+# auto-save = true # uncomment on upgrade to 2022-12-06
 [editor.statusline] 
 # left = ["mode", "spinner", "diagnostics"] # LSP activity
 left = ["spinner", "diagnostics"] # LSP activity
