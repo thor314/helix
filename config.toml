@@ -87,7 +87,7 @@ F = ["save_selection", "find_prev_char"]
 # g - goto operator/bottom (see below)
 G = "goto_last_line" 
 # c/C - change char/extend cursor down (change cursor down to operator?) 
-C-c = [":w", "normal_mode"]
+C-c = [":w", "collapse_selection", "normal_mode"] # hacky autosave and unselect
 A-c = "toggle_comments" 
 # r/R - replace char/not sure
 # l/L - left/unmapped
@@ -130,6 +130,7 @@ r = ["save_selection","goto_reference"]
 l = ["save_selection","goto_line_end"]
 L = ["save_selection","goto_line_end"]
 a = ["save_selection","goto_last_accessed_file"]
+e = ["save_selection","goto_last_line"]
 o = "jump_backward"
 i = "jump_forward"
 I = ["save_selection","goto_implementation"]
@@ -208,10 +209,10 @@ space = ":config-reload"
 # A-(hljk) - TS select next prev
 
 [keys.select]
-V = "move_line_down" # bug, won't hold last line in selection
-G = "goto_last_line" 
+v = "move_line_down" # bug, won't hold last line in selection
+G = "goto_last_line"
 T = "switch_case"
-C-c = "normal_mode"
+C-c = ["collapse_selection", "normal_mode"]
 
 #############
 ## INSERT ###
