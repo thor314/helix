@@ -2,8 +2,8 @@
 # catpuccin, dracula_at_night, everforest_dark, monokai_pro*, rose_pine are nice aesthetically
 # common pitfall: some themes don't display primary cursor well
 # theme = "base16_terminal" # transparent! But need to tweak colors (too green text) and pcursor
-theme = "catppuccin" # dark purple tint; doesn't show pcursor
-# theme = "monokai_pro_octagon" # grey tint
+# theme = "catppuccin" # dark purple tint; doesn't show pcursor
+theme = "monokai_pro_octagon" # grey tint
 # theme = "monokai_pro_spectrum" # darker grey than octagon
 # theme = "rose_pine" # dark purple, doesn't show pc well
 
@@ -78,11 +78,12 @@ C-s = ":write" # would be nice to have an autosave :|
 # c-s/a-s - unmapped/unmapped
 # -/_ - unmapped/trim whitespace from selection
 # "-" = "toggle_comments # bug nopa nope
-# '-' = "toggle_comments"
-# '/' - last fuzzy picker/register operator
-# ,/< - collapse multiple cursors/unindent in command
+# \' \" - last fuzzy picker/register operator, couldn't map \'
+# "'" = ["collapse_selection"] # nope bug
+# ,/< - collapse multiple cursors/unindent in command (remapped)
 # "C-," = ":open ~/.files/helix/config.toml" # bug nope
 # ./> - repeat/indent
+"," = ["save_selection","repeat_last_motion"] # move default `A-.` to here to match vim. Use C-c for collapse.
 "A-." = ["save_selection","repeat_last_motion"] # There is no natural "back" like vim `;` so use C-o to jump back.
 # p/P - paste before/after
 # a-p prev sibling in tree
