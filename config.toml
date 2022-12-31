@@ -112,6 +112,7 @@ A-c = "toggle_comments"
 # j/J - vim default
 # k/K - vim default/unclear
 # x/X = bug: can't bind keys to extend_line_below, so keep this mapping; select line/select no wrap
+# X = "extend_line_below" # bug
 # C-x bug: can't bind anything else to "completion"
 # A-x shrink selection - unclear what do
 # b/B - back/more back
@@ -123,11 +124,7 @@ V = ["save_selection","goto_line_start","select_mode", "goto_line_end"]
 # C-V = "paste_clipboard_before" # bug: nope
 # z/Z - adjust screen view mode/Sticky mode
 "%" = ["save_selection", "select_all"] # also see %
-# these cause helix to crash:
-# a = ["save_selection", "append_to_line"] 
-# A = ["save_selection", "append_to_line"]
-
-# C-/ = "toggle_comments" # nope
+# A = ["save_selection", "append_to_line"] # bug: runtime error
 
 [keys.select]
 T = "switch_case"
@@ -230,8 +227,3 @@ space = ":config-reload"
 # K - keep selections matching regex (narrow selections)
 # A-K - remove selections matching regex
 # A-(hljk) - TS select next prev
-
-#############
-## INSERT ###
-#############
-
