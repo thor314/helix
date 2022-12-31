@@ -11,6 +11,14 @@ max-line-length = 100
 # Manual: https://github.com/rust-lang/rust-analyzer/blob/master/docs/user/manual.adoc
 # listed options: https://github.com/rust-lang/rust-analyzer/blob/master/docs/user/generated_config.adoc
 name = "rust"
+# scope = "source.rust"
+# injection-regex = "(rust|rs)"
+# file-types = ["rs"]
+# roots = ["Cargo.toml", "Cargo.lock"]
+# comment-token = "//"
+# language-server = { command = "rust-analyzer" } 
+# indent = { tab-width = 4, unit = "    " }
+# "diagnostic.error" = { underline = { style = "curl", color = "red" } }
 
 [language.config] 
 # https://github.com/rust-lang/rust-analyzer/blob/master/docs/user/generated_config.adoc
@@ -25,5 +33,14 @@ checkOnSave.features = "all" # d: null
 diagnostics.experimental.enable = true # d: false
 # Whether to show inlay type hints for variables.
 inlayHints.typeHints.enable = true # d: true
+# typing.autoClosingAngleBrackets.enable = false
+# 
 
-# "rust-analyzer.typing.autoClosingAngleBrackets.enable": false, // Can't get VS code to intelligently skip '>'
+[language.auto-pairs]
+'(' = ')'
+'{' = '}'
+'[' = ']'
+'"' = '"'
+'`' = '`'
+'<' = '>'
+'|' = '|'
