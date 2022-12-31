@@ -47,26 +47,24 @@ select = "underline"
 [editor.indent-guides]
 render = true # show '|' character
 
-############
-## NORMAL ##
-############
-# don't bind Ctrl-Alt, use those in Alacritty binds, which can collide w/ helix binds
-# use space-c-space to reload and test
 [keys.normal]
-# C-a = ["save_selection", "select_all"] # also see %
+### don't bind Ctrl-Alt, use those in Alacritty binds, which can collide w/ helix binds
+### use space-c-space to reload and test
+C-a = ["save_selection", "select_all"] # also see %
 # Ctrl-o/O jump back/unmapped
-# Alt-o - expand selection to parent syntax note *useful*
+# Alt-o - expand selection to parent syntax note *useful*. 
 # e - normal. C-e/A-e unmapped.
 C-e = "file_picker" # - normal. C-e/A-e unmapped.
 A-e = "file_picker_in_current_directory" # - normal. C-e/A-e unmapped.
 # C-i - jump fwd
-A-i = "increment"
-A-I = "decrement"
+# u/U - undo redo, C-u up. Unclear how alt-u/U differ from u/U, so rebind.
+A-U = "increment" # also see A-D
 d = [ "yank", "yank_joined_to_clipboard", "delete_selection"]
 y = [ "yank", "yank_joined_to_clipboard"]
 D = ["extend_to_line_bounds", "yank", "paste_after", "move_line_down"] # duplicate line
+A-D = "decrement" # also see A-U
 # alt-d deletes word in insert mode, no-yank in normal mode
-# h/H - default
+# h - default, H - unmapped?
 t = ["delete_selection", "move_char_left", "paste_before"] # transpose chars good
 T = "switch_case" 
 # Ctrl-t - map to toggle menu. toggles preview in picker. 
@@ -74,8 +72,8 @@ T = "switch_case"
 # alt-n selects next sibling in syntax tree
 # s/S - MAJOR DIFF - regex select in selection/split in selection
 # A-s - split on newlines 
-C-s = ":write" # would be nice to have an autosave :|
-# c-s/a-s - unmapped/unmapped
+C-s = ":write-all" # write all buffers, may remap to search all buffers
+# C-s/A-s - unmapped/unmapped
 # -/_ - unmapped/trim whitespace from selection
 # "-" = "toggle_comments # bug nopa nope
 # \' \" - last fuzzy picker/register operator, couldn't map \'
@@ -86,7 +84,7 @@ C-s = ":write" # would be nice to have an autosave :|
 "," = ["save_selection","repeat_last_motion"] # move default `A-.` to here to match vim. Use C-c for collapse.
 "A-." = ["save_selection","repeat_last_motion"] # There is no natural "back" like vim `;` so use C-o to jump back.
 # p/P - paste before/after
-# a-p prev sibling in tree
+# A-p prev sibling in tree
 # y/Y - yank selecton/Yank selection to clipboard
 # f/F - seek til
 f = ["save_selection", "find_next_char"]
