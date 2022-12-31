@@ -48,6 +48,8 @@ select = "underline"
 [editor.indent-guides]
 render = true # show '|' character
 
+## Note on C-c - C-c is set up to be intelligent "cancel" behavior.
+## 
 [keys.normal]
 ### don't bind Ctrl-Alt, use those in Alacritty binds, which can collide w/ helix binds
 ### use space-c-space to reload and test
@@ -72,9 +74,8 @@ T = "switch_case"
 # n/N - next/prev in search (always nxt/prev, doesn't swap like vim)
 # alt-n selects next sibling in syntax tree
 # s/S - MAJOR DIFF - regex select in selection/split in selection
-# A-s - split on newlines 
+# A-s - split on newlines - bug, not doing anything?
 C-s = ":write-all" # write all buffers, may remap to search all buffers
-# C-s/A-s - unmapped/unmapped
 # -/_ - unmapped/trim whitespace from selection
 # "-" = "toggle_comments # bug nopa nope
 # \' \" - last fuzzy picker/register operator, couldn't map \'
@@ -93,7 +94,7 @@ F = ["save_selection", "find_prev_char"]
 # g - goto operator/bottom (see below)
 G = "goto_last_line" 
 # c/C - change char/extend cursor down (change cursor down to operator?) 
-C-c = [":w", "collapse_selection", "normal_mode"] # hacky autosave and unselect
+C-c = [":w", "collapse_selection", "keep_primary_selection", "normal_mode"] # hacky autosave and unselect
 A-c = "toggle_comments" 
 # r/R - replace char/not sure
 # l/L - left/unmapped
