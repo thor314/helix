@@ -49,7 +49,8 @@ select = "underline"
 render = true # show '|' character
 
 ## Note on bugs: MANY keys and functions bug when rebinds are attempted. Test rebinds often.
-### Use space-c-space to reload and test, or else, exit and re-enter.
+### Use space-c-space to reload and test, or else, exit and re-enter. If bug found, comment it out
+### leave a note so I don't waste time on it again, and move on. 
 ## Note on C-A-<key>: don't bind Ctrl-Alt, use those in Alacritty binds, avoid mental collisions.
 ## Note on vim-like behavior: where sensible, revert helix bindings to vim-like behavior. Eg:
 ### , - should jump to next match. unfortunately, there is no analogue to `;`, so use jump_backward
@@ -107,8 +108,7 @@ A-c = "toggle_comments"
 # r/R - replace char/not sure
 # l/L - left/unmapped
 # / ? - search fwd/back
-# =/+ - format (core bug, disabled/unmapped
-"=" = ":vsplit"
+# =/+ - format (core bug, disabled/unmapped)
 # C-"\" = ":vsplit" # Nope, bug
 # \\/| - unmapped/pipe (call shell cmd)
 "A-/" = ":vsplit"
@@ -123,7 +123,7 @@ A-c = "toggle_comments"
 # x/X = bug: can't bind keys to extend_line_below, so keep this mapping; select line/select no wrap
 # X = "extend_line_below" # bug
 # C-x bug: can't bind anything else to "completion"
-# A-x shrink selection - unclear what do
+# A-x shrink selection 
 # b/B - back/more back
 # m/M - select-mode/unmapped
 # w/W - fwd/more fwd
@@ -155,7 +155,7 @@ g = ["save_selection","goto_file_start"]
 c = ["save_selection","goto_window_center"]
 r = ["save_selection","goto_reference"]
 l = ["save_selection","goto_line_end"]
-# L = ["save_selection","goto_line_end"
+# L = ["save_selection","goto_line_end"]
 L = ["save_selection","select_mode", "goto_line_end", "delete_selection" ] 
 a = ["save_selection","goto_last_accessed_file"]
 e = ["save_selection","goto_last_line"]
@@ -171,7 +171,6 @@ s = ["save_selection","goto_first_nonwhitespace"]
 b = ["save_selection","goto_window_bottom"]
 m = ["save_selection","goto_last_modified_file"]
 
-# Copy this section into C-t insert mode.
 #[keys.normal."C-t"] # toggles (maybe)
 
 [keys.normal."A-b"]
@@ -190,7 +189,7 @@ f = ":fmt"
 
 [keys.normal.space] # misc operators, temp
 space = ":w"
-p = "paste_clipboard_before" # swap these
+p = "paste_clipboard_before" 
 P = "paste_clipboard_after"
 q = ":wq"
 # o = ":cd" # have to provide a dir 
