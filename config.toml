@@ -54,6 +54,7 @@ render = true # show '|' character
 # Ctrl-o/O jump back/unmapped
 # Alt-o - expand selection to parent syntax note *useful*
 # e - normal. C-e/A-e unmapped.
+C-e = ":open" # - normal. C-e/A-e unmapped.
 # C-i - jump fwd
 A-i = "increment"
 A-I = "decrement"
