@@ -54,7 +54,8 @@ render = true # show '|' character
 # Ctrl-o/O jump back/unmapped
 # Alt-o - expand selection to parent syntax note *useful*
 # e - normal. C-e/A-e unmapped.
-C-e = ":open" # - normal. C-e/A-e unmapped.
+C-e = "file_picker" # - normal. C-e/A-e unmapped.
+A-e = "file_picker_in_current_directory" # - normal. C-e/A-e unmapped.
 # C-i - jump fwd
 A-i = "increment"
 A-I = "decrement"
@@ -95,6 +96,7 @@ A-c = "toggle_comments"
 # / ? - search fwd/back
 # =/+ - format (core bug, disabled/unmapped
 "=" = ":vsplit"
+C-"\" = ":vsplit"
 # \\/| - unmapped/pipe (call shell cmd)
 "A-/" = ":vsplit"
 "A-?" = ":hsplit"
@@ -212,10 +214,11 @@ space = ":config-reload"
 # A-(hljk) - TS select next prev
 
 [keys.select]
-v = "move_line_down" # bug, won't hold last line in selection
-G = "goto_last_line"
 T = "switch_case"
+G = "goto_last_line"
 C-c = ["collapse_selection", "normal_mode"]
+A-c = "toggle_comments" 
+v = "move_line_down" # bug, won't hold last line in selection
 
 #############
 ## INSERT ###
