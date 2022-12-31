@@ -48,11 +48,19 @@ select = "underline"
 [editor.indent-guides]
 render = true # show '|' character
 
-## Note on C-c - C-c is set up to be intelligent "cancel" behavior.
-## 
+## Note on bugs: MANY keys and functions bug when rebinds are attempted. Test rebinds often.
+### Use space-c-space to reload and test, or else, exit and re-enter.
+## Note on C-A-<key>: don't bind Ctrl-Alt, use those in Alacritty binds, avoid mental collisions.
+## Note on vim-like behavior: where sensible, revert helix bindings to vim-like behavior. Eg:
+### , - should jump to next match. unfortunately, there is no analogue to `;`, so use jump_backward
+### C-c - should intelligently cancel (see below)
+### 
+## Note on save_selection: ez to accidentally jump, salt with save_selection to ez jump back.
+## Note on C-c - set up to be intelligent "cancel" behavior.
+### In insert mode, save file, don't collapse cursors. Go to normal mode.
+### In visual mode, collapse selection but not cursors. Go to normal mode.
+### In normal mode, collapse selection and cursors. Stay in normal mode.
 [keys.normal]
-### don't bind Ctrl-Alt, use those in Alacritty binds, which can collide w/ helix binds
-### use space-c-space to reload and test
 C-a = ["save_selection", "select_all"] # also see %
 # Ctrl-o/O jump back/unmapped
 # Alt-o - expand selection to parent syntax note *useful*. 
@@ -94,7 +102,7 @@ F = ["save_selection", "find_prev_char"]
 # g - goto operator/bottom (see below)
 G = "goto_last_line" 
 # c/C - change char/extend cursor down (change cursor down to operator?) 
-C-c = [":w", "collapse_selection", "keep_primary_selection", "normal_mode"] # hacky autosave and unselect
+C-c = ["collapse_selection", "keep_primary_selection", "normal_mode"] # hacky autosave and unselect
 A-c = "toggle_comments" 
 # r/R - replace char/not sure
 # l/L - left/unmapped
