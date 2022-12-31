@@ -79,7 +79,8 @@ C-s = ":write" # would be nice to have an autosave :|
 # '/' - last fuzzy picker/register operator
 # ,/< - collapse multiple cursors/unindent
 # ./> - repeat/indent
-"A-." = ["save_selection","repeat_last_motion"] #  repeat last motion
+"C-," =" :config-open"
+"A-." = ["save_selection","repeat_last_motion"] # There is no natural "back" like vim `;` so use C-o to jump back.
 # p/P - paste before/after
 # a-p prev sibling in tree
 # y/Y - yank selecton/Yank selection to clipboard
@@ -96,10 +97,12 @@ A-c = "toggle_comments"
 # / ? - search fwd/back
 # =/+ - format (core bug, disabled/unmapped
 "=" = ":vsplit"
-C-"\" = ":vsplit"
+# C-"\" = ":vsplit" # Nope, bug
 # \\/| - unmapped/pipe (call shell cmd)
 "A-/" = ":vsplit"
 "A-?" = ":hsplit"
+# "A-/" = "toggle_comments" # bug tracker: this works lol
+# "C-/" = "toggle_comments" # note that while mapping A-/ works, C-/ does not.
 # !/Alt-! similar to above
 # ;/: - collapse selection/ex operand
 # q/Q - apply macro/record macro
@@ -122,6 +125,18 @@ V = ["save_selection","goto_line_start","select_mode", "goto_line_end"]
 # A = ["save_selection", "append_to_line"]
 
 # C-/ = "toggle_comments" # nope
+
+[keys.select]
+T = "switch_case"
+G = "goto_last_line"
+C-c = ["collapse_selection", "normal_mode"]
+A-c = "toggle_comments" 
+v = "move_line_down" # bug, won't hold last line in selection
+
+[keys.insert]
+C-c = [":w", "normal_mode"]
+# j = { j = "normal_mode" } # more annoying in helix than vim
+# k = { k = "normal_mode" }
 
 [keys.normal.g] # goto should save jumplist position 
 "."=["save_selection","goto_last_modification"]
@@ -213,18 +228,7 @@ space = ":config-reload"
 # A-K - remove selections matching regex
 # A-(hljk) - TS select next prev
 
-[keys.select]
-T = "switch_case"
-G = "goto_last_line"
-C-c = ["collapse_selection", "normal_mode"]
-A-c = "toggle_comments" 
-v = "move_line_down" # bug, won't hold last line in selection
-
 #############
 ## INSERT ###
 #############
 
-[keys.insert]
-C-c = [":w", "normal_mode"]
-# j = { j = "normal_mode" } # more annoying in helix than vim
-# k = { k = "normal_mode" }
