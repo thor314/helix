@@ -14,7 +14,10 @@ theme = "monokai_pro_octagon" # grey tint
 # completions?
 # Can't open locations with `:cd` or `:open` in a bind, expects a directory in command
 # editor doesn't virtually wrap long lines, reflow sortof works
- 
+# Vertical lines 
+  hcraoehu
+     o
+r
 [editor]
 idle-timeout = 200 # ms til idle-timers, eg autocomplete. def:400
 # auto-save = true # uncomment on upgrade to 2022-12-06 release
