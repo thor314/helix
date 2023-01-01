@@ -92,7 +92,8 @@ C-s = ":write-all" # write all buffers, may remap to search all buffers
 # ,/< - collapse multiple cursors/unindent in command (remapped)
 # "C-," = ":open ~/.files/helix/config.toml" # bug nope
 # ./> - repeat/indent
-"," = ["save_selection","repeat_last_motion"] # move default `A-.` to here to match vim. Use C-c for collapse.
+# , - to be remapped
+"," = "collapse_selection" # may remap, C-c already does this.
 "A-." = ["save_selection","repeat_last_motion"] # There is no natural "back" like vim `;` so use C-o to jump back.
 # p/P - paste before/after
 # A-p prev sibling in tree
@@ -117,7 +118,8 @@ A-c = "toggle_comments"
 # "C-/" = "toggle_comments" # note that while mapping A-/ works, C-/ does not.
 # !/Alt-! similar to above
 # ;/: - collapse selection/ex operand
-# q/Q - apply macro/record macro
+";" = ["save_selection","repeat_last_motion"] # match vim 
+# move default `A-.` to here to match vim. Use C-c for collapse.# q/Q - apply macro/record macro
 # j/J - vim default
 # k/K - vim default/unclear
 # x/X = bug: can't bind keys to extend_line_below, so keep this mapping; select line/select no wrap
