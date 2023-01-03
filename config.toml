@@ -193,7 +193,7 @@ f = ":fmt"
 space = ":w"
 p = "paste_clipboard_before" 
 P = "paste_clipboard_after"
-q = [":w", ":q"] # avoid ":wq" bug
+# q = [":w", ":q"] # avoid ":wq" bug? No, this crashes too. yikes.
 # o = ":cd" # have to provide a dir 
 
 [keys.normal.'[']
