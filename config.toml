@@ -85,7 +85,10 @@ T = "switch_case"
 # s/S - MAJOR DIFF - regex select in selection/split in selection
 # A-s - split on newlines - bug, not doing anything?
 C-s = ":write-all" # write all buffers, may remap to search all buffers
-
+C-s = ":write-all" # write all buffers, may remap to search all buffers
+C-s = ":write-all" # write all buffers, may remap to search all buffers
+C-s = ":write-all" # write all buffers, may remap to search all buffers
+C-s = ":write-all" # write all buffers, may remap to search all buffers
 # -/_ - unmapped/trim whitespace from selection
 # "-" = "toggle_comments # bug nopa nope
 # \' \" - last fuzzy picker/register operator, couldn't map \'
@@ -98,6 +101,7 @@ C-s = ":write-all" # write all buffers, may remap to search all buffers
 "A-." = ["save_selection","repeat_last_motion"] # There is no natural "back" like vim `;` so use C-o to jump back.
 # p/P - paste before/after
 # A-p prev sibling in tree
+p = ["move_char_left", "paste_after", "move_char_right"]
 # y/Y - yank selecton/Yank selection to clipboard
 # f/F - seek til
 f = ["save_selection", "find_next_char"]
