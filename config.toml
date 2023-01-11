@@ -73,7 +73,7 @@ A-e = "file_picker_in_current_directory" # - normal. C-e/A-e unmapped.
 A-U = "increment" # also see A-D
 d = [ "yank", "yank_joined_to_clipboard", "delete_selection"]
 y = [ "yank", "yank_joined_to_clipboard"]
-D = ["extend_to_line_bounds", "yank", "paste_after", "move_line_down"] # duplicate line
+A-d = ["extend_to_line_bounds", "yank", "paste_after", "move_line_down"] # duplicate line
 A-D = "decrement" # also see A-U
 # alt-d deletes word in insert mode, no-yank in normal mode
 # h - default, H - unmapped?
