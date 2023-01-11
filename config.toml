@@ -146,7 +146,7 @@ A-c = "toggle_comments"
 v = "move_line_down" # bug, won't hold last line in selection
 
 [keys.insert]
-C-c = [":w", "normal_mode"]
+C-c = "normal_mode"
 # j = { j = "normal_mode" } # more annoying in helix than vim
 # k = { k = "normal_mode" }
 
