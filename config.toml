@@ -19,17 +19,16 @@ theme = "monokai_pro_octagon" # grey tint
 [editor]
 idle-timeout = 200 # ms til idle-timers, eg autocomplete. def:400
 soft-wrap.enable = true # soft wrap in 
-# auto-save = true # uncomment on upgrade to 2022-12-06 release
+auto-save = true # uncomment on upgrade to 2022-12-06 release
 
 [editor.statusline] 
-# left = ["mode", "spinner", "diagnostics"] # LSP activity
+# https://docs.helix-editor.com/configuration.html?highlight=version-control#editorstatusline-section
 left = ["spinner", "diagnostics", "version-control"] # LSP activity
 center = ["file-name"]
 
 [editor.lsp]
 display-messages = true # display lsp progress messages below statusline
 display-inlay-hints = true # display LSP inlay hints
-
 
 [editor.cursor-shape]
 # by default, all are block

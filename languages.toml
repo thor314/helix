@@ -4,8 +4,7 @@
 [[language]] 
 name = "markdown"
 file-types = ["md"]
-# :( no effect:
-max-line-length = 100 
+text-width = 100
 
 [[language]]
 # Manual: https://github.com/rust-lang/rust-analyzer/blob/master/docs/user/manual.adoc
