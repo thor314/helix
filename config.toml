@@ -1,14 +1,13 @@
 ## Welcome to my (Thor, thor314, cryptograthor)'s helix configuration!
 
 # gallery: https://github.com/helix-editor/helix/wiki/Themes
-# view all: `:theme <tab thru>`
 theme = "monokai_pro_octagon" # grey tint
 
 [editor]
 # docs:  https://docs.helix-editor.com/editor.html
 line-number = "relative" # absolute, relative
 rulers = [100] # where to display vertical rulers
-bufferline = "multiple" # always, multiple, never Renders a line at the top of the editor displaying open buffers
+bufferline = "multiple" # always, multiple, never; display open buffers at top
 color-modes = true # display the bottom left status bar helix-mode in color
 text-width = 100 # used for :reflow
 popup-border = "all" # whether to draw a border. popup menu all all
@@ -26,7 +25,7 @@ display-inlay-hints = true # display LSP inlay hints
 insert = "bar"
 select = "underline"
 
-[editor.file-picker]
+# [editor.file-picker]
 # hidden = false # uncomment - don't ignore hidden files
 
 [editor.auto-pairs] # enable automatic pair insertion. for lang-spec, use languages.toml.
@@ -48,7 +47,6 @@ character = "┊"
 [editor.soft-wrap]
 enable = true # wrap lines, don't extend infinitely to the right
 wrap-at-text-width = true # wrap at text-width size
-
 
 ############
 # KEYBINDS #
@@ -72,7 +70,7 @@ A-d = ["extend_to_line_bounds", "yank", "paste_after", "move_line_down"] # dupli
 H = ["save_selection", "goto_line_start"] 
 t = ["save_selection", "find_till_char"]
 T = ["save_selection", "till_prev_char"]
-C-A-s = ":write-all" # write all buffers, may remap to search all buffers
+C-A-s = ":write-all" # write all buffers
 
 [keys.select] # by pressing v in normal mode
 tab = ["save_selection", "extend_parent_node_end"]
@@ -90,32 +88,13 @@ T = ["save_selection", "till_prev_char"]
 S-tab = ["save_selection", "move_parent_node_start"]
 C-c = "normal_mode"
 
-#[keys.normal.g] # goto should save jumplist position 
-#"."=["save_selection","goto_last_modification"]
-#y = ["save_selection","goto_type_definition"]
-#f = ["save_selection","goto_file"] # goto-file in selection, meh?
-#g = ["save_selection","goto_file_start"]
-#c = ["save_selection","goto_window_center"]
-#r = ["save_selection","goto_reference"]
-#l = ["save_selection","goto_line_end"]
-## L = ["save_selection","goto_line_end"]
-#L = ["save_selection","select_mode", "goto_line_end", "delete_selection" ] 
-#a = ["save_selection","goto_last_accessed_file"]
-#e = ["save_selection","goto_last_line"]
-#o = "jump_backward"
-#i = "jump_forward"
-#I = ["save_selection","goto_implementation"]
-#d = ["save_selection","goto_definition"]
-#h = ["save_selection","goto_line_start"]
-#H = ["save_selection","select_mode", "goto_line_start", "delete_selection" ] 
-#t = ["save_selection","goto_window_top"]
-#n = ["save_selection","goto_previous_buffer"]
-#s = ["save_selection","goto_first_nonwhitespace"]
-#b = ["save_selection","goto_window_bottom"]
-#m = ["save_selection","goto_last_modified_file"]
+[keys.normal.space] 
+space = ":w"
+q = ":wq" 
 
-##[keys.normal."C-t"] # toggles (maybe)
-
+###########
+# ARCHIVE #
+###########
 #[keys.normal."A-b"]
 #q = ":buffer-close" # also :bc
 #A-q = ":buffer-close!" # also :bc!
@@ -126,60 +105,3 @@ C-c = "normal_mode"
 #k = ":buffer-next"
 #j = ":buffer-previous"
 #s = ":write-all" # write all buffers
-
-#[keys.normal."C-m"]
-#f = ":fmt"
-
-#[keys.normal.space] # misc operators, temp
-#space = ":w"
-#p = "paste_clipboard_before" 
-#P = "paste_clipboard_after"
-## q = [":w", ":q"] # avoid ":wq" bug? No, this crashes too. yikes.
-#q = [":q"] # avoid ":wq" bug? No, this crashes too. yikes.
-## o = ":cd" # have to provide a dir 
-
-#[keys.normal.'[']
-#space = [ ":insert-output echo -n ' '" ]
-
-#[keys.normal.']']
-#space = ["move_char_right", ":insert-output echo -n ' '", "move_char_left"]
-
-#[keys.normal.space.c]
-#a = ":open ~/.files/fish/conf.d/alias.fish"
-#A = ":open ~/.files/alacritty/alacritty.yml"
-#b = ":open ~/.files/fish/conf.d/bind.fish"
-#c = ":open ~/.files/helix/config.toml"
-#d = ":open ~/.files/install.conf.yaml"
-#f = ":open ~/.files/fish/config.fish"
-#l = ":open ~/.config/helix/languages.toml" 
-#K = ":open ~/.setup/clones/helix/book/src/keymap.md"
-#C = ":open ~/.setup/clones/helix/book/src/generated/typable-cmd.md"
-#s = ":open ~/.setup/install.sh"
-#u = ":open ~/.setup/unsorted.sh"
-#v = ":open ~/.files/vimrc"
-#V = ":open ~/note2/.obsidian.vimrc"
-#z = ":open ~/.zshrc" 
-#space = ":config-reload"
-
-#############
-### SELECT ##
-#############
-## Alt-o - expand selection to parent syntax note *useful*
-## alt-n selects next sibling in syntax tree
-## s/S - MAJOR DIFF - regex select in selection/split in selection
-## Alt-s split on newlines
-## & - align cursors
-## _ - trim whitespace from selection
-## ; - collapse selection 
-## C - extend cursor down
-## A-C - cursor up
-## (,) - rotate primary cursor
-## A-(/) - rotate selections (seems like this would b hard to use)
-## % or C-a - select all
-## K - keep selections matching regex (narrow selections)
-## A-K - remove selections matching regex
-## A-(hljk) - TS select next prev
-
-###########
-# ARCHIVE #
-###########
