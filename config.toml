@@ -1,62 +1,58 @@
 ## Welcome to my (Thor, thor314, cryptograthor)'s helix configuration!
-## key cheatsheet: https://cheatography.com/hiddenmonkey/cheat-sheets/helix/
 
-##############
-# APPEARANCE #
-##############
 # gallery: https://github.com/helix-editor/helix/wiki/Themes
 # view all: `:theme <tab thru>`
 theme = "monokai_pro_octagon" # grey tint
 
 [editor]
 # docs:  https://docs.helix-editor.com/editor.html
-# idle-timeout = 200 # ms til idle-timers, eg autocomplete. def:400
-soft-wrap.enable = true # soft wrap in 
-auto-save = true 
+line-number = "relative" # absolute, relative
+rulers = [100] # where to display vertical rulers
+bufferline = "multiple" # always, multiple, never Renders a line at the top of the editor displaying open buffers
+color-modes = true # display the bottom left status bar helix-mode in color
+text-width = 100 # used for :reflow
+popup-border = "all" # whether to draw a border. popup menu all all
 
-#[editor.statusline] 
-## https://docs.helix-editor.com/configuration.html?highlight=version-control#editorstatusline-section
-#left = ["spinner", "diagnostics", "version-control"] # LSP activity
-#center = ["file-name"]
+[editor.statusline] 
+left = ["mode", "spacer", "diagnostics", "spacer", "workspace-diagnostics", "spacer", "version-control", "spacer", "spinner" ]
+center = ["total-line-numbers", "spacer", "file-name", "spacer", "file-modification-indicator", "spacer", "read-only-indicator"]
+right = ["register", "spacer", "primary-selection-length", "spacer", "position-percentage"]
 
-#[editor.lsp]
-#display-messages = true # display lsp progress messages below statusline
-#display-inlay-hints = true # display LSP inlay hints
+[editor.lsp]
+display-messages = true # display lsp progress messages below statusline, slightly noisy info
+display-inlay-hints = true # display LSP inlay hints
 
-#[editor.cursor-shape]
-## by default, all are block
-#insert = "bar"
-#normal = "block" 
-#select = "underline"
+[editor.cursor-shape] # by default, all are block
+insert = "bar"
+select = "underline"
 
-#[editor.file-picker]
-## hidden = false # don't ignore hidden files, default true
+[editor.file-picker]
+# hidden = false # uncomment - don't ignore hidden files
 
-#[editor.auto-pairs] # enable automatic pair insertion. for lang-spec, use languages.toml.
-#'(' = ')'
-#'{' = '}'
-#'[' = ']'
-#'"' = '"'
-#'`' = '`'
-#'<' = '>'
+[editor.auto-pairs] # enable automatic pair insertion. for lang-spec, use languages.toml.
+'(' = ')'
+'{' = '}'
+'[' = ']'
+'"' = '"'
+'`' = '`'
+'<' = '>'
 
-#[editor.indent-guides]
-#render = true # show '|' character
+[editor.auto-save]
+focus-lost = true # save on losing window focus
+after-delay.enable = true # save after 3 seconds since last edit
 
-### Note on bugs: MANY keys and functions bug when rebinds are attempted. Test rebinds often.
-#### Use space-c-space to reload and test, or else, exit and re-enter. If bug found, comment it out
-#### leave a note so I don't waste time on it again, and move on. 
-### Note on C-A-<key>: don't bind Ctrl-Alt, use those in Alacritty binds, avoid mental collisions.
-### Note on vim-like behavior: where sensible, revert helix bindings to vim-like behavior. Eg:
-#### , - should jump to next match. unfortunately, there is no analogue to `;`, so use jump_backward
-#### C-c - should intelligently cancel (see below)
-#### 
-### Note on save_selection: ez to accidentally jump, salt with save_selection to ez jump back.
-### Note on C-c - set up to be intelligent "cancel" behavior.
-#### In insert mode, save file, don't collapse cursors. Go to normal mode.
-#### In visual mode, collapse selection but not cursors. Go to normal mode.
-#### In normal mode, collapse selection and cursors. Stay in normal mode.
+
+[editor.indent-guides]
+render = true # show '|' character indent guides
+character = "┊"
+
+[editor.soft-wrap]
+enable = true # wrap lines, don't extend infinitely to the right
+wrap-at-text-width = true # wrap at text-width size
+
 [keys.normal]
+tab = "move_parent_node_end"
+S-tab = "move_parent_node_start"
 #C-a = ["save_selection", "select_all"] # also see %
 ## Ctrl-o/O jump back/unmapped
 ## Alt-o - expand selection to parent syntax note *useful*. 
@@ -100,7 +96,7 @@ auto-save = true
 ## g - goto operator/bottom (see below)
 #G = "goto_last_line" 
 ## c/C - change char/extend cursor down (change cursor down to operator?) 
-#C-c = ["collapse_selection", "keep_primary_selection", "normal_mode"] # hacky autosave and unselect
+C-c = ["collapse_selection", "keep_primary_selection", "normal_mode"] # hacky autosave and unselect
 #A-c = "toggle_comments" 
 ## r/R - replace char/not sure
 ## l/L - left/unmapped
@@ -111,7 +107,7 @@ auto-save = true
 #"A-/" = ":vsplit"
 #"A-?" = ":hsplit"
 "A-/" = "toggle_comments" # bug tracker: this works lol
-## "C-/" = "toggle_comments" # v24.7 still bugged
+# "C-/" = "toggle_comments" # v24.7 still bugged
 ## !/Alt-! similar to above
 ## ;/: - collapse selection/ex operand
 #";" = ["save_selection","repeat_last_motion"] # match vim 
@@ -140,8 +136,14 @@ auto-save = true
 #A-c = "toggle_comments" 
 #v = "move_line_down" # bug, won't hold last line in selection
 
-#[keys.insert]
-#C-c = "normal_mode"
+[keys.insert]
+C-c = "normal_mode"
+S-tab = "move_parent_node_start"
+
+[keys.select]
+tab = "extend_parent_node_end"
+S-tab = "extend_parent_node_start"
+
 ## j = { j = "normal_mode" } # more annoying in helix than vim
 ## k = { k = "normal_mode" }
 
