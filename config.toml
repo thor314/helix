@@ -71,6 +71,7 @@ H = ["save_selection", "goto_line_start"]
 t = ["save_selection", "find_till_char"]
 T = ["save_selection", "till_prev_char"]
 C-A-s = ":write-all" # write all buffers
+A-j = ["save_selection", "goto_word"]
 
 [keys.select] # by pressing v in normal mode
 tab = ["save_selection", "extend_parent_node_end"]
