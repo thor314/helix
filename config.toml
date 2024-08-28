@@ -41,7 +41,6 @@ select = "underline"
 focus-lost = true # save on losing window focus
 after-delay.enable = true # save after 3 seconds since last edit
 
-
 [editor.indent-guides]
 render = true # show '|' character indent guides
 character = "┊"
@@ -50,84 +49,28 @@ character = "┊"
 enable = true # wrap lines, don't extend infinitely to the right
 wrap-at-text-width = true # wrap at text-width size
 
+
+############
+# KEYBINDS #
+############
 [keys.normal]
-tab = "move_parent_node_end"
-S-tab = "move_parent_node_start"
-#C-a = ["save_selection", "select_all"] # also see %
-## Ctrl-o/O jump back/unmapped
-## Alt-o - expand selection to parent syntax note *useful*. 
-## e - normal. C-e/A-e unmapped.
-#C-e = "file_picker" # - normal. C-e/A-e unmapped.
-#A-e = "file_picker_in_current_directory" # - normal. C-e/A-e unmapped.
-## C-i - jump fwd
-## u/U - undo redo, C-u up. Unclear how alt-u/U differ from u/U, so rebind.
-#A-U = "increment" # also see A-D
-#d = [ "yank", "yank_joined_to_clipboard", "delete_selection"]
-#y = [ "yank", "yank_joined_to_clipboard"]
-#A-d = ["extend_to_line_bounds", "yank", "paste_after", "move_line_down"] # duplicate line
-#A-D = "decrement" # also see A-U
-## alt-d deletes word in insert mode, no-yank in normal mode
-## h - default, H - unmapped?
-#t = ["delete_selection", "move_char_left", "paste_before"] # transpose chars good
-#T = "switch_case" 
-## Ctrl-t - map to toggle menu. toggles preview in picker. 
-## n/N - next/prev in search (always nxt/prev, doesn't swap like vim)
-## alt-n selects next sibling in syntax tree
-## s/S - MAJOR DIFF - regex select in selection/split in selection
-## A-s - split on newlines - bug, not doing anything?
-#C-s = ":write-all" # write all buffers, may remap to search all buffers
-## -/_ - unmapped/trim whitespace from selection
-## "-" = "toggle_comments # bug nopa nope
-## \' \" - last fuzzy picker/register operator, couldn't map \'
-## "'" = ["collapse_selection"] # nope bug
-## ,/< - collapse multiple cursors/unindent in command (remapped)
-## "C-," = ":open ~/.files/helix/config.toml" # bug nope
-## ./> - repeat/indent
-## , - to be remapped
-#"," = "collapse_selection" # may remap, C-c already does this.
-#"A-." = ["save_selection","repeat_last_motion"] # There is no natural "back" like vim `;` so use C-o to jump back.
-## p/P - paste before/after
-## A-p prev sibling in tree
-#p = ["move_char_left", "paste_after", "move_char_right"]
-## y/Y - yank selecton/Yank selection to clipboard
-## f/F - seek til
-#f = ["save_selection", "find_next_char"]
-#F = ["save_selection", "find_prev_char"]
-## g - goto operator/bottom (see below)
-#G = "goto_last_line" 
-## c/C - change char/extend cursor down (change cursor down to operator?) 
+tab = ["save_selection", "move_parent_node_end"]
+S-tab = ["save_selection", "move_parent_node_start"]
+"%" = ["save_selection", "select_all"] 
+C-t = ["delete_selection", "move_char_left", "paste_before", "move_char_right"] # transpose 
+f = ["save_selection", "find_next_char"]
+F = ["save_selection", "find_prev_char"]
+G = ["save_selection", "goto_last_line"] 
 C-c = ["collapse_selection", "keep_primary_selection", "normal_mode"] # hacky autosave and unselect
-#A-c = "toggle_comments" 
-## r/R - replace char/not sure
-## l/L - left/unmapped
-## / ? - search fwd/back
-## =/+ - format (core bug, disabled/unmapped)
-## C-"\" = ":vsplit" # Nope, bug
-## \\/| - unmapped/pipe (call shell cmd)
-#"A-/" = ":vsplit"
-#"A-?" = ":hsplit"
-"A-/" = "toggle_comments" # bug tracker: this works lol
-# "C-/" = "toggle_comments" # v24.7 still bugged
-## !/Alt-! similar to above
-## ;/: - collapse selection/ex operand
-#";" = ["save_selection","repeat_last_motion"] # match vim 
-## move default `A-.` to here to match vim. Use C-c for collapse.# q/Q - apply macro/record macro
-## j/J - vim default
-## k/K - vim default/unclear
-## x/X = bug: can't bind keys to extend_line_below, so keep this mapping; select line/select no wrap
-## X = "extend_line_below" # bug
-## C-x bug: can't bind anything else to "completion"
-## A-x shrink selection 
-## b/B - back/more back
-## m/M - select-mode/unmapped
-## w/W - fwd/more fwd
-## "V" = "extend_line_below" # bug, will crash
-#V = ["save_selection","goto_line_start","select_mode", "goto_line_end"] 
-## V = ["save_selection","goto_line_start","select_mode","move_line_down"] 
-## C-V = "paste_clipboard_before" # bug: nope
-## z/Z - adjust screen view mode/Sticky mode
-#"%" = ["save_selection", "select_all"] # also see %
-## A = ["save_selection", "append_to_line"] # bug: runtime error
+# A-c = "toggle_comments"
+"A-/" = ":vsplit"
+"A-?" = ":hsplit"
+A = ["save_selection", "insert_at_line_end"] 
+I = ["save_selection", "insert_at_line_start"] 
+A-d = ["extend_to_line_bounds", "yank", "paste_after", "move_line_down"] # duplicate line
+t = ["save_selection", "find_till_char"]
+T = ["save_selection", "till_prev_char"]
+C-A-s = ":write-all" # write all buffers, may remap to search all buffers
 
 #[keys.select]
 #T = "switch_case"
@@ -138,11 +81,11 @@ C-c = ["collapse_selection", "keep_primary_selection", "normal_mode"] # hacky au
 
 [keys.insert]
 C-c = "normal_mode"
-S-tab = "move_parent_node_start"
+S-tab = ["save_selection", "move_parent_node_start"]
 
 [keys.select]
-tab = "extend_parent_node_end"
-S-tab = "extend_parent_node_start"
+tab = ["save_selection", "extend_parent_node_end"]
+S-tab = ["save_selection", "extend_parent_node_start"]
 
 ## j = { j = "normal_mode" } # more annoying in helix than vim
 ## k = { k = "normal_mode" }
