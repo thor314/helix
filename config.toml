@@ -64,6 +64,8 @@ A-c = "toggle_comments"
 L = ["save_selection", "goto_line_end"] 
 "A-/" = ":vsplit"
 "A-?" = ":hsplit"
+"A-=" = "decrement"
+"A-+" = "increment"
 A = ["save_selection", "insert_at_line_end"] 
 I = ["save_selection", "insert_at_line_start"] 
 A-d = ["extend_to_line_bounds", "yank", "paste_after", "move_line_down"] # duplicate line
