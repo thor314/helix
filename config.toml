@@ -1,5 +1,4 @@
 ## Welcome to my (Thor, thor314, cryptograthor)'s helix configuration!
-## key cheatsheet: https://cheatography.com/hiddenmonkey/cheat-sheets/helix/
 
 ##############
 # APPEARANCE #
@@ -10,16 +9,21 @@ theme = "monokai_pro_octagon" # grey tint
 
 [editor]
 # docs:  https://docs.helix-editor.com/editor.html
-# idle-timeout = 200 # ms til idle-timers, eg autocomplete. def:400
-soft-wrap.enable = true # soft wrap in 
+soft-wrap.enable = true # wrap lines, don't extend infinitely to the right
+line-number = "relative" # absolute, relative
 auto-save = true 
+rulers = [100] # where to display vertical rulers
+bufferline = "multiple" # always, multiple, never Renders a line at the top of the editor displaying open buffers
+color-modes = true # display the bottom left status bar helix-mode in color
+text-width = 100 # used for :reflow
+popup-border = "all" # whether to draw a border. popup menu all all
 
-#[editor.statusline] 
-## https://docs.helix-editor.com/configuration.html?highlight=version-control#editorstatusline-section
-#left = ["spinner", "diagnostics", "version-control"] # LSP activity
-#center = ["file-name"]
+[editor.statusline] 
+left = ["mode", "spacer", "diagnostics", "spacer", "workspace-diagnostics", "spacer", "version-control", "spacer", "spinner" ]
+center = ["total-line-numbers", "spacer", "file-name", "spacer", "file-modification-indicator", "spacer", "read-only-indicator"]
+right = ["register", "spacer", "primary-selection-length", "spacer", "position-percentage"]
 
-#[editor.lsp]
+[editor.lsp]
 #display-messages = true # display lsp progress messages below statusline
 #display-inlay-hints = true # display LSP inlay hints
 
@@ -100,7 +104,7 @@ auto-save = true
 ## g - goto operator/bottom (see below)
 #G = "goto_last_line" 
 ## c/C - change char/extend cursor down (change cursor down to operator?) 
-#C-c = ["collapse_selection", "keep_primary_selection", "normal_mode"] # hacky autosave and unselect
+C-c = ["collapse_selection", "keep_primary_selection", "normal_mode"] # hacky autosave and unselect
 #A-c = "toggle_comments" 
 ## r/R - replace char/not sure
 ## l/L - left/unmapped
@@ -111,7 +115,7 @@ auto-save = true
 #"A-/" = ":vsplit"
 #"A-?" = ":hsplit"
 "A-/" = "toggle_comments" # bug tracker: this works lol
-## "C-/" = "toggle_comments" # v24.7 still bugged
+# "C-/" = "toggle_comments" # v24.7 still bugged
 ## !/Alt-! similar to above
 ## ;/: - collapse selection/ex operand
 #";" = ["save_selection","repeat_last_motion"] # match vim 
@@ -140,8 +144,8 @@ auto-save = true
 #A-c = "toggle_comments" 
 #v = "move_line_down" # bug, won't hold last line in selection
 
-#[keys.insert]
-#C-c = "normal_mode"
+[keys.insert]
+C-c = "normal_mode"
 ## j = { j = "normal_mode" } # more annoying in helix than vim
 ## k = { k = "normal_mode" }
 
