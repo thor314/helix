@@ -63,32 +63,32 @@ F = ["save_selection", "find_prev_char"]
 G = ["save_selection", "goto_last_line"] 
 C-c = ["collapse_selection", "keep_primary_selection", "normal_mode"] # hacky autosave and unselect
 A-c = "toggle_comments"
+L = ["save_selection", "goto_line_end"] 
 "A-/" = ":vsplit"
 "A-?" = ":hsplit"
 A = ["save_selection", "insert_at_line_end"] 
 I = ["save_selection", "insert_at_line_start"] 
 A-d = ["extend_to_line_bounds", "yank", "paste_after", "move_line_down"] # duplicate line
+H = ["save_selection", "goto_line_start"] 
 t = ["save_selection", "find_till_char"]
 T = ["save_selection", "till_prev_char"]
 C-A-s = ":write-all" # write all buffers, may remap to search all buffers
 
-#[keys.select]
-#T = "switch_case"
-#G = "goto_last_line"
-#C-c = ["collapse_selection", "normal_mode"]
-#A-c = "toggle_comments" 
-#v = "move_line_down" # bug, won't hold last line in selection
-
-[keys.insert]
-C-c = "normal_mode"
-S-tab = ["save_selection", "move_parent_node_start"]
-
-[keys.select]
+[keys.select] # by pressing v in normal mode
 tab = ["save_selection", "extend_parent_node_end"]
 S-tab = ["save_selection", "extend_parent_node_start"]
+f = ["save_selection", "find_next_char"]
+F = ["save_selection", "find_prev_char"]
+G = ["save_selection", "goto_last_line"] 
+C-c = ["collapse_selection", "normal_mode"]
+L = ["save_selection", "goto_line_end"] 
+H = ["save_selection", "goto_line_start"] 
+t = ["save_selection", "find_till_char"]
+T = ["save_selection", "till_prev_char"]
 
-## j = { j = "normal_mode" } # more annoying in helix than vim
-## k = { k = "normal_mode" }
+[keys.insert]
+S-tab = ["save_selection", "move_parent_node_start"]
+C-c = "normal_mode"
 
 #[keys.normal.g] # goto should save jumplist position 
 #"."=["save_selection","goto_last_modification"]
