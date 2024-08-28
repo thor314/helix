@@ -11,7 +11,6 @@ theme = "monokai_pro_octagon" # grey tint
 # docs:  https://docs.helix-editor.com/editor.html
 soft-wrap.enable = true # wrap lines, don't extend infinitely to the right
 line-number = "relative" # absolute, relative
-auto-save = true 
 rulers = [100] # where to display vertical rulers
 bufferline = "multiple" # always, multiple, never Renders a line at the top of the editor displaying open buffers
 color-modes = true # display the bottom left status bar helix-mode in color
@@ -24,28 +23,32 @@ center = ["total-line-numbers", "spacer", "file-name", "spacer", "file-modificat
 right = ["register", "spacer", "primary-selection-length", "spacer", "position-percentage"]
 
 [editor.lsp]
-#display-messages = true # display lsp progress messages below statusline
-#display-inlay-hints = true # display LSP inlay hints
+display-messages = true # display lsp progress messages below statusline, slightly noisy info
+display-inlay-hints = true # display LSP inlay hints
 
-#[editor.cursor-shape]
-## by default, all are block
-#insert = "bar"
-#normal = "block" 
-#select = "underline"
+[editor.cursor-shape] # by default, all are block
+insert = "bar"
+select = "underline"
 
-#[editor.file-picker]
-## hidden = false # don't ignore hidden files, default true
+[editor.file-picker]
+# hidden = false # uncomment - don't ignore hidden files
 
-#[editor.auto-pairs] # enable automatic pair insertion. for lang-spec, use languages.toml.
-#'(' = ')'
-#'{' = '}'
-#'[' = ']'
-#'"' = '"'
-#'`' = '`'
-#'<' = '>'
+[editor.auto-pairs] # enable automatic pair insertion. for lang-spec, use languages.toml.
+'(' = ')'
+'{' = '}'
+'[' = ']'
+'"' = '"'
+'`' = '`'
+'<' = '>'
 
-#[editor.indent-guides]
-#render = true # show '|' character
+[editor.auto-save]
+focus-lost = true # save on losing window focus
+after-delay.enable = true # save after 3 seconds since last edit
+
+
+[editor.indent-guides]
+render = true # show '|' character indent guides
+character = "┊"
 
 ### Note on bugs: MANY keys and functions bug when rebinds are attempted. Test rebinds often.
 #### Use space-c-space to reload and test, or else, exit and re-enter. If bug found, comment it out
