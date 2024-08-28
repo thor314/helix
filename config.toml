@@ -1,243 +1,243 @@
-# theme = "monokai_pro_machine" # green tint
-# catpuccin, dracula_at_night, everforest_dark, monokai_pro*, rose_pine are nice aesthetically
-# common pitfall: some themes don't display primary cursor well
-# theme = "base16_terminal" # transparent! But need to tweak colors (too green text) and pcursor
-# theme = "catppuccin" # dark purple tint; doesn't show pcursor
-theme = "monokai_pro_octagon" # grey tint
-# theme = "monokai_pro_spectrum" # darker grey than octagon
-# theme = "rose_pine" # dark purple, doesn't show pc well
+## theme = "monokai_pro_machine" # green tint
+## catpuccin, dracula_at_night, everforest_dark, monokai_pro*, rose_pine are nice aesthetically
+## common pitfall: some themes don't display primary cursor well
+## theme = "base16_terminal" # transparent! But need to tweak colors (too green text) and pcursor
+## theme = "catppuccin" # dark purple tint; doesn't show pcursor
+#theme = "monokai_pro_octagon" # grey tint
+## theme = "monokai_pro_spectrum" # darker grey than octagon
+## theme = "rose_pine" # dark purple, doesn't show pc well
 
-# key cheatsheet: https://cheatography.com/hiddenmonkey/cheat-sheets/helix/
-#### TODO ####
-# Can I configure hotkeys to execute shell commands?
-# How to give multi-command functions aliases in menu
-# completions?
-# Can't open locations with `:cd` or `:open` in a bind, expects a directory in command
-# editor doesn't virtually wrap long lines, reflow sortof works
-# Vertical lines 
+## key cheatsheet: https://cheatography.com/hiddenmonkey/cheat-sheets/helix/
+##### TODO ####
+## Can I configure hotkeys to execute shell commands?
+## How to give multi-command functions aliases in menu
+## completions?
+## Can't open locations with `:cd` or `:open` in a bind, expects a directory in command
+## editor doesn't virtually wrap long lines, reflow sortof works
+## Vertical lines 
 
-[editor]
-idle-timeout = 200 # ms til idle-timers, eg autocomplete. def:400
-soft-wrap.enable = true # soft wrap in 
-auto-save = true # uncomment on upgrade to 2022-12-06 release
+#[editor]
+#idle-timeout = 200 # ms til idle-timers, eg autocomplete. def:400
+#soft-wrap.enable = true # soft wrap in 
+#auto-save = true # uncomment on upgrade to 2022-12-06 release
 
-[editor.statusline] 
-# https://docs.helix-editor.com/configuration.html?highlight=version-control#editorstatusline-section
-left = ["spinner", "diagnostics", "version-control"] # LSP activity
-center = ["file-name"]
+#[editor.statusline] 
+## https://docs.helix-editor.com/configuration.html?highlight=version-control#editorstatusline-section
+#left = ["spinner", "diagnostics", "version-control"] # LSP activity
+#center = ["file-name"]
 
-[editor.lsp]
-display-messages = true # display lsp progress messages below statusline
-display-inlay-hints = true # display LSP inlay hints
+#[editor.lsp]
+#display-messages = true # display lsp progress messages below statusline
+#display-inlay-hints = true # display LSP inlay hints
 
-[editor.cursor-shape]
-# by default, all are block
-insert = "bar"
-normal = "block" 
-select = "underline"
+#[editor.cursor-shape]
+## by default, all are block
+#insert = "bar"
+#normal = "block" 
+#select = "underline"
 
-[editor.file-picker]
-# hidden = false # don't ignore hidden files, default true
+#[editor.file-picker]
+## hidden = false # don't ignore hidden files, default true
 
-[editor.auto-pairs] # enable automatic pair insertion. for lang-spec, use languages.toml.
-'(' = ')'
-'{' = '}'
-'[' = ']'
-'"' = '"'
-'`' = '`'
-'<' = '>'
+#[editor.auto-pairs] # enable automatic pair insertion. for lang-spec, use languages.toml.
+#'(' = ')'
+#'{' = '}'
+#'[' = ']'
+#'"' = '"'
+#'`' = '`'
+#'<' = '>'
 
-[editor.indent-guides]
-render = true # show '|' character
+#[editor.indent-guides]
+#render = true # show '|' character
 
-## Note on bugs: MANY keys and functions bug when rebinds are attempted. Test rebinds often.
-### Use space-c-space to reload and test, or else, exit and re-enter. If bug found, comment it out
-### leave a note so I don't waste time on it again, and move on. 
-## Note on C-A-<key>: don't bind Ctrl-Alt, use those in Alacritty binds, avoid mental collisions.
-## Note on vim-like behavior: where sensible, revert helix bindings to vim-like behavior. Eg:
-### , - should jump to next match. unfortunately, there is no analogue to `;`, so use jump_backward
-### C-c - should intelligently cancel (see below)
-### 
-## Note on save_selection: ez to accidentally jump, salt with save_selection to ez jump back.
-## Note on C-c - set up to be intelligent "cancel" behavior.
-### In insert mode, save file, don't collapse cursors. Go to normal mode.
-### In visual mode, collapse selection but not cursors. Go to normal mode.
-### In normal mode, collapse selection and cursors. Stay in normal mode.
-[keys.normal]
-C-a = ["save_selection", "select_all"] # also see %
-# Ctrl-o/O jump back/unmapped
-# Alt-o - expand selection to parent syntax note *useful*. 
-# e - normal. C-e/A-e unmapped.
-C-e = "file_picker" # - normal. C-e/A-e unmapped.
-A-e = "file_picker_in_current_directory" # - normal. C-e/A-e unmapped.
-# C-i - jump fwd
-# u/U - undo redo, C-u up. Unclear how alt-u/U differ from u/U, so rebind.
-A-U = "increment" # also see A-D
-d = [ "yank", "yank_joined_to_clipboard", "delete_selection"]
-y = [ "yank", "yank_joined_to_clipboard"]
-A-d = ["extend_to_line_bounds", "yank", "paste_after", "move_line_down"] # duplicate line
-A-D = "decrement" # also see A-U
-# alt-d deletes word in insert mode, no-yank in normal mode
-# h - default, H - unmapped?
-t = ["delete_selection", "move_char_left", "paste_before"] # transpose chars good
-T = "switch_case" 
-# Ctrl-t - map to toggle menu. toggles preview in picker. 
-# n/N - next/prev in search (always nxt/prev, doesn't swap like vim)
-# alt-n selects next sibling in syntax tree
-# s/S - MAJOR DIFF - regex select in selection/split in selection
-# A-s - split on newlines - bug, not doing anything?
-C-s = ":write-all" # write all buffers, may remap to search all buffers
-# -/_ - unmapped/trim whitespace from selection
-# "-" = "toggle_comments # bug nopa nope
-# \' \" - last fuzzy picker/register operator, couldn't map \'
-# "'" = ["collapse_selection"] # nope bug
-# ,/< - collapse multiple cursors/unindent in command (remapped)
-# "C-," = ":open ~/.files/helix/config.toml" # bug nope
-# ./> - repeat/indent
-# , - to be remapped
-"," = "collapse_selection" # may remap, C-c already does this.
-"A-." = ["save_selection","repeat_last_motion"] # There is no natural "back" like vim `;` so use C-o to jump back.
-# p/P - paste before/after
-# A-p prev sibling in tree
-p = ["move_char_left", "paste_after", "move_char_right"]
-# y/Y - yank selecton/Yank selection to clipboard
-# f/F - seek til
-f = ["save_selection", "find_next_char"]
-F = ["save_selection", "find_prev_char"]
-# g - goto operator/bottom (see below)
-G = "goto_last_line" 
-# c/C - change char/extend cursor down (change cursor down to operator?) 
-C-c = ["collapse_selection", "keep_primary_selection", "normal_mode"] # hacky autosave and unselect
-A-c = "toggle_comments" 
-# r/R - replace char/not sure
-# l/L - left/unmapped
-# / ? - search fwd/back
-# =/+ - format (core bug, disabled/unmapped)
-# C-"\" = ":vsplit" # Nope, bug
-# \\/| - unmapped/pipe (call shell cmd)
-"A-/" = ":vsplit"
-"A-?" = ":hsplit"
-# "A-/" = "toggle_comments" # bug tracker: this works lol
-# "C-/" = "toggle_comments" # note that while mapping A-/ works, C-/ does not.
-# !/Alt-! similar to above
-# ;/: - collapse selection/ex operand
-";" = ["save_selection","repeat_last_motion"] # match vim 
-# move default `A-.` to here to match vim. Use C-c for collapse.# q/Q - apply macro/record macro
-# j/J - vim default
-# k/K - vim default/unclear
-# x/X = bug: can't bind keys to extend_line_below, so keep this mapping; select line/select no wrap
-# X = "extend_line_below" # bug
-# C-x bug: can't bind anything else to "completion"
-# A-x shrink selection 
-# b/B - back/more back
-# m/M - select-mode/unmapped
-# w/W - fwd/more fwd
-# "V" = "extend_line_below" # bug, will crash
-V = ["save_selection","goto_line_start","select_mode", "goto_line_end"] 
-# V = ["save_selection","goto_line_start","select_mode","move_line_down"] 
-# C-V = "paste_clipboard_before" # bug: nope
-# z/Z - adjust screen view mode/Sticky mode
-"%" = ["save_selection", "select_all"] # also see %
-# A = ["save_selection", "append_to_line"] # bug: runtime error
+### Note on bugs: MANY keys and functions bug when rebinds are attempted. Test rebinds often.
+#### Use space-c-space to reload and test, or else, exit and re-enter. If bug found, comment it out
+#### leave a note so I don't waste time on it again, and move on. 
+### Note on C-A-<key>: don't bind Ctrl-Alt, use those in Alacritty binds, avoid mental collisions.
+### Note on vim-like behavior: where sensible, revert helix bindings to vim-like behavior. Eg:
+#### , - should jump to next match. unfortunately, there is no analogue to `;`, so use jump_backward
+#### C-c - should intelligently cancel (see below)
+#### 
+### Note on save_selection: ez to accidentally jump, salt with save_selection to ez jump back.
+### Note on C-c - set up to be intelligent "cancel" behavior.
+#### In insert mode, save file, don't collapse cursors. Go to normal mode.
+#### In visual mode, collapse selection but not cursors. Go to normal mode.
+#### In normal mode, collapse selection and cursors. Stay in normal mode.
+#[keys.normal]
+#C-a = ["save_selection", "select_all"] # also see %
+## Ctrl-o/O jump back/unmapped
+## Alt-o - expand selection to parent syntax note *useful*. 
+## e - normal. C-e/A-e unmapped.
+#C-e = "file_picker" # - normal. C-e/A-e unmapped.
+#A-e = "file_picker_in_current_directory" # - normal. C-e/A-e unmapped.
+## C-i - jump fwd
+## u/U - undo redo, C-u up. Unclear how alt-u/U differ from u/U, so rebind.
+#A-U = "increment" # also see A-D
+#d = [ "yank", "yank_joined_to_clipboard", "delete_selection"]
+#y = [ "yank", "yank_joined_to_clipboard"]
+#A-d = ["extend_to_line_bounds", "yank", "paste_after", "move_line_down"] # duplicate line
+#A-D = "decrement" # also see A-U
+## alt-d deletes word in insert mode, no-yank in normal mode
+## h - default, H - unmapped?
+#t = ["delete_selection", "move_char_left", "paste_before"] # transpose chars good
+#T = "switch_case" 
+## Ctrl-t - map to toggle menu. toggles preview in picker. 
+## n/N - next/prev in search (always nxt/prev, doesn't swap like vim)
+## alt-n selects next sibling in syntax tree
+## s/S - MAJOR DIFF - regex select in selection/split in selection
+## A-s - split on newlines - bug, not doing anything?
+#C-s = ":write-all" # write all buffers, may remap to search all buffers
+## -/_ - unmapped/trim whitespace from selection
+## "-" = "toggle_comments # bug nopa nope
+## \' \" - last fuzzy picker/register operator, couldn't map \'
+## "'" = ["collapse_selection"] # nope bug
+## ,/< - collapse multiple cursors/unindent in command (remapped)
+## "C-," = ":open ~/.files/helix/config.toml" # bug nope
+## ./> - repeat/indent
+## , - to be remapped
+#"," = "collapse_selection" # may remap, C-c already does this.
+#"A-." = ["save_selection","repeat_last_motion"] # There is no natural "back" like vim `;` so use C-o to jump back.
+## p/P - paste before/after
+## A-p prev sibling in tree
+#p = ["move_char_left", "paste_after", "move_char_right"]
+## y/Y - yank selecton/Yank selection to clipboard
+## f/F - seek til
+#f = ["save_selection", "find_next_char"]
+#F = ["save_selection", "find_prev_char"]
+## g - goto operator/bottom (see below)
+#G = "goto_last_line" 
+## c/C - change char/extend cursor down (change cursor down to operator?) 
+#C-c = ["collapse_selection", "keep_primary_selection", "normal_mode"] # hacky autosave and unselect
+#A-c = "toggle_comments" 
+## r/R - replace char/not sure
+## l/L - left/unmapped
+## / ? - search fwd/back
+## =/+ - format (core bug, disabled/unmapped)
+## C-"\" = ":vsplit" # Nope, bug
+## \\/| - unmapped/pipe (call shell cmd)
+#"A-/" = ":vsplit"
+#"A-?" = ":hsplit"
+## "A-/" = "toggle_comments" # bug tracker: this works lol
+## "C-/" = "toggle_comments" # note that while mapping A-/ works, C-/ does not.
+## !/Alt-! similar to above
+## ;/: - collapse selection/ex operand
+#";" = ["save_selection","repeat_last_motion"] # match vim 
+## move default `A-.` to here to match vim. Use C-c for collapse.# q/Q - apply macro/record macro
+## j/J - vim default
+## k/K - vim default/unclear
+## x/X = bug: can't bind keys to extend_line_below, so keep this mapping; select line/select no wrap
+## X = "extend_line_below" # bug
+## C-x bug: can't bind anything else to "completion"
+## A-x shrink selection 
+## b/B - back/more back
+## m/M - select-mode/unmapped
+## w/W - fwd/more fwd
+## "V" = "extend_line_below" # bug, will crash
+#V = ["save_selection","goto_line_start","select_mode", "goto_line_end"] 
+## V = ["save_selection","goto_line_start","select_mode","move_line_down"] 
+## C-V = "paste_clipboard_before" # bug: nope
+## z/Z - adjust screen view mode/Sticky mode
+#"%" = ["save_selection", "select_all"] # also see %
+## A = ["save_selection", "append_to_line"] # bug: runtime error
 
-[keys.select]
-T = "switch_case"
-G = "goto_last_line"
-C-c = ["collapse_selection", "normal_mode"]
-A-c = "toggle_comments" 
-v = "move_line_down" # bug, won't hold last line in selection
+#[keys.select]
+#T = "switch_case"
+#G = "goto_last_line"
+#C-c = ["collapse_selection", "normal_mode"]
+#A-c = "toggle_comments" 
+#v = "move_line_down" # bug, won't hold last line in selection
 
-[keys.insert]
-C-c = "normal_mode"
-# j = { j = "normal_mode" } # more annoying in helix than vim
-# k = { k = "normal_mode" }
+#[keys.insert]
+#C-c = "normal_mode"
+## j = { j = "normal_mode" } # more annoying in helix than vim
+## k = { k = "normal_mode" }
 
-[keys.normal.g] # goto should save jumplist position 
-"."=["save_selection","goto_last_modification"]
-y = ["save_selection","goto_type_definition"]
-f = ["save_selection","goto_file"] # goto-file in selection, meh?
-g = ["save_selection","goto_file_start"]
-c = ["save_selection","goto_window_center"]
-r = ["save_selection","goto_reference"]
-l = ["save_selection","goto_line_end"]
-# L = ["save_selection","goto_line_end"]
-L = ["save_selection","select_mode", "goto_line_end", "delete_selection" ] 
-a = ["save_selection","goto_last_accessed_file"]
-e = ["save_selection","goto_last_line"]
-o = "jump_backward"
-i = "jump_forward"
-I = ["save_selection","goto_implementation"]
-d = ["save_selection","goto_definition"]
-h = ["save_selection","goto_line_start"]
-H = ["save_selection","select_mode", "goto_line_start", "delete_selection" ] 
-t = ["save_selection","goto_window_top"]
-n = ["save_selection","goto_previous_buffer"]
-s = ["save_selection","goto_first_nonwhitespace"]
-b = ["save_selection","goto_window_bottom"]
-m = ["save_selection","goto_last_modified_file"]
+#[keys.normal.g] # goto should save jumplist position 
+#"."=["save_selection","goto_last_modification"]
+#y = ["save_selection","goto_type_definition"]
+#f = ["save_selection","goto_file"] # goto-file in selection, meh?
+#g = ["save_selection","goto_file_start"]
+#c = ["save_selection","goto_window_center"]
+#r = ["save_selection","goto_reference"]
+#l = ["save_selection","goto_line_end"]
+## L = ["save_selection","goto_line_end"]
+#L = ["save_selection","select_mode", "goto_line_end", "delete_selection" ] 
+#a = ["save_selection","goto_last_accessed_file"]
+#e = ["save_selection","goto_last_line"]
+#o = "jump_backward"
+#i = "jump_forward"
+#I = ["save_selection","goto_implementation"]
+#d = ["save_selection","goto_definition"]
+#h = ["save_selection","goto_line_start"]
+#H = ["save_selection","select_mode", "goto_line_start", "delete_selection" ] 
+#t = ["save_selection","goto_window_top"]
+#n = ["save_selection","goto_previous_buffer"]
+#s = ["save_selection","goto_first_nonwhitespace"]
+#b = ["save_selection","goto_window_bottom"]
+#m = ["save_selection","goto_last_modified_file"]
 
-#[keys.normal."C-t"] # toggles (maybe)
+##[keys.normal."C-t"] # toggles (maybe)
 
-[keys.normal."A-b"]
-q = ":buffer-close" # also :bc
-A-q = ":buffer-close!" # also :bc!
-# c = ":vsplit-new scratch" # new buffer in split # bug - runtime error
-C = ":new" # scratch buffer
-n = ":buffer-next"
-p = ":buffer-previous"
-k = ":buffer-next"
-j = ":buffer-previous"
-s = ":write-all" # write all buffers
+#[keys.normal."A-b"]
+#q = ":buffer-close" # also :bc
+#A-q = ":buffer-close!" # also :bc!
+## c = ":vsplit-new scratch" # new buffer in split # bug - runtime error
+#C = ":new" # scratch buffer
+#n = ":buffer-next"
+#p = ":buffer-previous"
+#k = ":buffer-next"
+#j = ":buffer-previous"
+#s = ":write-all" # write all buffers
 
-[keys.normal."C-m"]
-f = ":fmt"
+#[keys.normal."C-m"]
+#f = ":fmt"
 
-[keys.normal.space] # misc operators, temp
-space = ":w"
-p = "paste_clipboard_before" 
-P = "paste_clipboard_after"
-# q = [":w", ":q"] # avoid ":wq" bug? No, this crashes too. yikes.
-q = [":q"] # avoid ":wq" bug? No, this crashes too. yikes.
-# o = ":cd" # have to provide a dir 
+#[keys.normal.space] # misc operators, temp
+#space = ":w"
+#p = "paste_clipboard_before" 
+#P = "paste_clipboard_after"
+## q = [":w", ":q"] # avoid ":wq" bug? No, this crashes too. yikes.
+#q = [":q"] # avoid ":wq" bug? No, this crashes too. yikes.
+## o = ":cd" # have to provide a dir 
 
-[keys.normal.'[']
-space = [ ":insert-output echo -n ' '" ]
+#[keys.normal.'[']
+#space = [ ":insert-output echo -n ' '" ]
 
-[keys.normal.']']
-space = ["move_char_right", ":insert-output echo -n ' '", "move_char_left"]
+#[keys.normal.']']
+#space = ["move_char_right", ":insert-output echo -n ' '", "move_char_left"]
 
-[keys.normal.space.c]
-a = ":open ~/.files/fish/conf.d/alias.fish"
-A = ":open ~/.files/alacritty/alacritty.yml"
-b = ":open ~/.files/fish/conf.d/bind.fish"
-c = ":open ~/.files/helix/config.toml"
-d = ":open ~/.files/install.conf.yaml"
-f = ":open ~/.files/fish/config.fish"
-l = ":open ~/.config/helix/languages.toml" 
-K = ":open ~/.setup/clones/helix/book/src/keymap.md"
-C = ":open ~/.setup/clones/helix/book/src/generated/typable-cmd.md"
-s = ":open ~/.setup/install.sh"
-u = ":open ~/.setup/unsorted.sh"
-v = ":open ~/.files/vimrc"
-V = ":open ~/note2/.obsidian.vimrc"
-z = ":open ~/.zshrc" 
-space = ":config-reload"
+#[keys.normal.space.c]
+#a = ":open ~/.files/fish/conf.d/alias.fish"
+#A = ":open ~/.files/alacritty/alacritty.yml"
+#b = ":open ~/.files/fish/conf.d/bind.fish"
+#c = ":open ~/.files/helix/config.toml"
+#d = ":open ~/.files/install.conf.yaml"
+#f = ":open ~/.files/fish/config.fish"
+#l = ":open ~/.config/helix/languages.toml" 
+#K = ":open ~/.setup/clones/helix/book/src/keymap.md"
+#C = ":open ~/.setup/clones/helix/book/src/generated/typable-cmd.md"
+#s = ":open ~/.setup/install.sh"
+#u = ":open ~/.setup/unsorted.sh"
+#v = ":open ~/.files/vimrc"
+#V = ":open ~/note2/.obsidian.vimrc"
+#z = ":open ~/.zshrc" 
+#space = ":config-reload"
 
-############
-## SELECT ##
-############
-# Alt-o - expand selection to parent syntax note *useful*
-# alt-n selects next sibling in syntax tree
-# s/S - MAJOR DIFF - regex select in selection/split in selection
-# Alt-s split on newlines
-# & - align cursors
-# _ - trim whitespace from selection
-# ; - collapse selection 
-# C - extend cursor down
-# A-C - cursor up
-# (,) - rotate primary cursor
-# A-(/) - rotate selections (seems like this would b hard to use)
-# % or C-a - select all
-# K - keep selections matching regex (narrow selections)
-# A-K - remove selections matching regex
-# A-(hljk) - TS select next prev
+#############
+### SELECT ##
+#############
+## Alt-o - expand selection to parent syntax note *useful*
+## alt-n selects next sibling in syntax tree
+## s/S - MAJOR DIFF - regex select in selection/split in selection
+## Alt-s split on newlines
+## & - align cursors
+## _ - trim whitespace from selection
+## ; - collapse selection 
+## C - extend cursor down
+## A-C - cursor up
+## (,) - rotate primary cursor
+## A-(/) - rotate selections (seems like this would b hard to use)
+## % or C-a - select all
+## K - keep selections matching regex (narrow selections)
+## A-K - remove selections matching regex
+## A-(hljk) - TS select next prev
