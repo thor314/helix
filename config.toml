@@ -1,25 +1,18 @@
-## theme = "monokai_pro_machine" # green tint
-## catpuccin, dracula_at_night, everforest_dark, monokai_pro*, rose_pine are nice aesthetically
-## common pitfall: some themes don't display primary cursor well
-## theme = "base16_terminal" # transparent! But need to tweak colors (too green text) and pcursor
-## theme = "catppuccin" # dark purple tint; doesn't show pcursor
-#theme = "monokai_pro_octagon" # grey tint
-## theme = "monokai_pro_spectrum" # darker grey than octagon
-## theme = "rose_pine" # dark purple, doesn't show pc well
-
+## Welcome to my (Thor, thor314, cryptograthor)'s helix configuration!
 ## key cheatsheet: https://cheatography.com/hiddenmonkey/cheat-sheets/helix/
-##### TODO ####
-## Can I configure hotkeys to execute shell commands?
-## How to give multi-command functions aliases in menu
-## completions?
-## Can't open locations with `:cd` or `:open` in a bind, expects a directory in command
-## editor doesn't virtually wrap long lines, reflow sortof works
-## Vertical lines 
 
-#[editor]
-#idle-timeout = 200 # ms til idle-timers, eg autocomplete. def:400
-#soft-wrap.enable = true # soft wrap in 
-#auto-save = true # uncomment on upgrade to 2022-12-06 release
+##############
+# APPEARANCE #
+##############
+# gallery: https://github.com/helix-editor/helix/wiki/Themes
+# view all: `:theme <tab thru>`
+theme = "monokai_pro_octagon" # grey tint
+
+[editor]
+# docs:  https://docs.helix-editor.com/editor.html
+# idle-timeout = 200 # ms til idle-timers, eg autocomplete. def:400
+soft-wrap.enable = true # soft wrap in 
+auto-save = true 
 
 #[editor.statusline] 
 ## https://docs.helix-editor.com/configuration.html?highlight=version-control#editorstatusline-section
@@ -63,7 +56,7 @@
 #### In insert mode, save file, don't collapse cursors. Go to normal mode.
 #### In visual mode, collapse selection but not cursors. Go to normal mode.
 #### In normal mode, collapse selection and cursors. Stay in normal mode.
-#[keys.normal]
+[keys.normal]
 #C-a = ["save_selection", "select_all"] # also see %
 ## Ctrl-o/O jump back/unmapped
 ## Alt-o - expand selection to parent syntax note *useful*. 
@@ -117,8 +110,8 @@
 ## \\/| - unmapped/pipe (call shell cmd)
 #"A-/" = ":vsplit"
 #"A-?" = ":hsplit"
-## "A-/" = "toggle_comments" # bug tracker: this works lol
-## "C-/" = "toggle_comments" # note that while mapping A-/ works, C-/ does not.
+"A-/" = "toggle_comments" # bug tracker: this works lol
+## "C-/" = "toggle_comments" # v24.7 still bugged
 ## !/Alt-! similar to above
 ## ;/: - collapse selection/ex operand
 #";" = ["save_selection","repeat_last_motion"] # match vim 
@@ -241,3 +234,7 @@
 ## K - keep selections matching regex (narrow selections)
 ## A-K - remove selections matching regex
 ## A-(hljk) - TS select next prev
+
+###########
+# ARCHIVE #
+###########
