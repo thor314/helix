@@ -1,11 +1,6 @@
 # My language configurations
 # https://docs.helix-editor.com/languages.html
 
-[[language]] 
-name = "markdown"
-file-types = ["md"]
-text-width = 100
-
 # support helix-gpt completions
 [language-server.gpt]
 command = "helix-gpt"
@@ -15,40 +10,30 @@ command = "typescript-language-server"
 args = ["--stdio"]
 language-id = "javascript"
 
+# https://github.com/rubydusa/circom-lsp
+[language-server.circom-lsp]
+command = "circom-lsp"
+args = ["--stdio"]
+# config = 
+# environment = { "ENV1" = "value1", "ENV2" = "value2" }
+
+# [language-server.rust-analyzer.config]
+# checkOnSave.command = "clippy" # d: "check"
+# checkOnSave.allTargets = true # d: true
+# checkOnSave.features = "all" # d: null
+
+[[language]] 
+name = "markdown"
+file-types = ["md"]
+text-width = 100
+
 [[language]]
 name = "typescript"
 language-servers = [ "ts", "gpt" ]
 
 [[language]]
-# Manual: https://github.com/rust-lang/rust-analyzer/blob/master/docs/user/manual.adoc
-# listed options: https://github.com/rust-lang/rust-analyzer/blob/master/docs/user/generated_config.adoc
 name = "rust"
-# scope = "source.rust"
-# injection-regex = "(rust|rs)"
-# file-types = ["rs"]
-# roots = ["Cargo.toml", "Cargo.lock"]
-# comment-token = "//"
-# language-server = { command = "rust-analyzer" } 
-language-servers = [ "rust-analyzer", "gpt" ] 
-# indent = { tab-width = 4, unit = "    " }
-# "diagnostic.error" = { underline = { style = "curl", color = "red" } }
-
-# TODO: update "config" to some other field, probably changed on patch 24.7
-#[language.config] 
-## https://github.com/rust-lang/rust-analyzer/blob/master/docs/user/generated_config.adoc
-#checkOnSave.command = "clippy" # d: "check"
-## Whether to enforce the import granularity setting for all files. If set to false rust-analyzer will try to keep import styles consistent per file.
-#imports.granularity.enforce = true # d: false
-## Check all targets and tests (--all-targets). disable to speed checks.
-#checkOnSave.allTargets = true # d: true
-## List of features to activate (eg test, wasm). disable to speed checks.
-#checkOnSave.features = "all" # d: null
-## Whether to show experimental rust-analyzer diagnostics that might have more false positives than usual.
-#diagnostics.experimental.enable = true # d: false
-## Whether to show inlay type hints for variables. Note this is not currently supported in Helix.
-#inlayHints.typeHints.enable = true # d: true
-## typing.autoClosingAngleBrackets.enable = false
-## 
+language-servers = [ "rust-analyzer", "gpt" ]  
 
 [language.auto-pairs]
 '(' = ')'
@@ -58,3 +43,19 @@ language-servers = [ "rust-analyzer", "gpt" ]
 '`' = '`'
 '<' = '>'
 '|' = '|'
+
+[[language]]
+name = "circom"
+scope = "source.circom"
+injection-regex = "circom"
+file-types = ["circom"]
+roots = ["package.json"]
+comment-tokens = "//"
+indent = { tab-width = 4, unit = "    " }
+auto-format = false
+language-servers = ["circom-lsp"]
+# "diagnostic.error" = { underline = { style = "curl", color = "red" } }
+
+[[grammar]]
+name = "circom"
+source = { git = "https://github.com/Decurity/tree-sitter-circom", rev = "c4df0664be207e2eae9f5507f9f5f00ea0a952c9" }
