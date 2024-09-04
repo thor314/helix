@@ -13,9 +13,6 @@ language-id = "javascript"
 # https://github.com/rubydusa/circom-lsp
 [language-server.circom-lsp]
 command = "circom-lsp"
-args = ["--stdio"]
-# config = 
-# environment = { "ENV1" = "value1", "ENV2" = "value2" }
 
 # [language-server.rust-analyzer.config]
 # checkOnSave.command = "clippy" # d: "check"
@@ -54,8 +51,8 @@ comment-tokens = "//"
 indent = { tab-width = 4, unit = "    " }
 auto-format = false
 language-servers = ["circom-lsp"]
-# "diagnostic.error" = { underline = { style = "curl", color = "red" } }
 
 [[grammar]]
 name = "circom"
-source = { git = "https://github.com/Decurity/tree-sitter-circom", rev = "c4df0664be207e2eae9f5507f9f5f00ea0a952c9" }
+# source = { git = "https://github.com/Decurity/tree-sitter-circom", rev = "c4df0664be207e2eae9f5507f9f5f00ea0a952c9" }
+source = { git = "https://github.com/Beaglefoot/tree-sitter-awk", rev = "a799bc5da7c2a84bc9a06ba5f3540cf1191e4ee3" }
