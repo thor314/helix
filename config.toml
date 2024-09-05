@@ -73,7 +73,10 @@ H = ["save_selection", "goto_first_nonwhitespace"]
 t = ["save_selection", "find_till_char"]
 T = ["save_selection", "till_prev_char"]
 C-A-s = ":write-all" # write all buffers
-A-j = ["save_selection", "goto_word"]
+
+'A-1' = "rotate_view"
+'{' = ":buffer-previous"
+'}' = ":buffer-next"
 
 [keys.select] # by pressing v in normal mode
 tab = ["save_selection", "extend_parent_node_end"]
@@ -94,7 +97,11 @@ C-c = "normal_mode"
 [keys.normal.space] 
 space = ":w"
 q = ":bc" 
+c = ":config-reload" # overwrite toggle block comment 
 Q = ":wq" 
+
+[keys.normal.space.o] # open commen files
+c = ":config-open" # overwrite toggle comment 
 
 ###########
 # ARCHIVE #
