@@ -69,7 +69,7 @@ L = ["save_selection", "goto_line_end"]
 A = ["save_selection", "insert_at_line_end"] 
 I = ["save_selection", "insert_at_line_start"] 
 A-d = ["extend_to_line_bounds", "yank", "paste_after", "move_line_down"] # duplicate line
-H = ["save_selection", "goto_line_start"] 
+H = ["save_selection", "goto_first_nonwhitespace"] 
 t = ["save_selection", "find_till_char"]
 T = ["save_selection", "till_prev_char"]
 C-A-s = ":write-all" # write all buffers
@@ -83,7 +83,7 @@ F = ["save_selection", "find_prev_char"]
 G = ["save_selection", "goto_last_line"] 
 C-c = ["collapse_selection", "normal_mode"]
 L = ["save_selection", "goto_line_end"] 
-H = ["save_selection", "goto_line_start"] 
+H = ["save_selection", "goto_first_nonwhitespace"] 
 t = ["save_selection", "find_till_char"]
 T = ["save_selection", "till_prev_char"]
 
@@ -93,7 +93,8 @@ C-c = "normal_mode"
 
 [keys.normal.space] 
 space = ":w"
-q = ":wq" 
+q = ":bc" 
+Q = ":wq" 
 
 ###########
 # ARCHIVE #
