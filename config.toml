@@ -12,7 +12,7 @@ color-modes = true # display the bottom left status bar helix-mode in color
 text-width = 100 # used for :reflow
 popup-border = "all" # whether to draw a border. popup menu all all
 
-[editor.statusline] 
+[editor.statusline]
 left = ["mode", "spacer", "diagnostics", "spacer", "workspace-diagnostics", "spacer", "version-control", "spacer", "spinner" ]
 center = ["total-line-numbers", "spacer", "file-name", "spacer", "file-modification-indicator", "spacer", "read-only-indicator"]
 right = ["register", "spacer", "primary-selection-length", "spacer", "position-percentage"]
@@ -52,56 +52,64 @@ wrap-at-text-width = true # wrap at text-width size
 # KEYBINDS #
 ############
 [keys.normal]
-tab = ["save_selection", "move_parent_node_end"]
-S-tab = ["save_selection", "move_parent_node_start"]
-"%" = ["save_selection", "select_all"] 
-C-t = ["delete_selection", "move_char_left", "paste_before", "move_char_right"] # transpose 
-f = ["save_selection", "find_next_char"]
-F = ["save_selection", "find_prev_char"]
-G = ["save_selection", "goto_last_line"] 
+C-t = ["delete_selection", "move_char_left", "paste_before", "move_char_right"] # transpose
 C-c = ["collapse_selection", "keep_primary_selection", "normal_mode"] # hacky autosave and unselect
 A-c = "toggle_comments"
-L = ["save_selection", "goto_line_end"] 
-"A-/" = ":vsplit"
-"A-?" = ":hsplit"
-"A-=" = "decrement"
-"A-+" = "increment"
-A = ["save_selection", "insert_at_line_end"] 
-I = ["save_selection", "insert_at_line_start"] 
+
 A-d = ["extend_to_line_bounds", "yank", "paste_after", "move_line_down"] # duplicate line
-H = ["save_selection", "goto_first_nonwhitespace"] 
-t = ["save_selection", "find_till_char"]
-T = ["save_selection", "till_prev_char"]
+
 C-A-s = ":write-all" # write all buffers
 
+"A-=" = "decrement"
+"A-+" = "increment"
+
+# view and buffer
+"A-/" = ":vsplit"
+"A-?" = ":hsplit"
 'A-1' = "rotate_view"
 '{' = ":buffer-previous"
 '}' = ":buffer-next"
 
+# movement adjustments - save selection to avoid losing place, helix has no undo last movement
+tab = ["save_selection", "move_parent_node_end"]
+S-tab = ["save_selection", "move_parent_node_start"]
+"%" = ["save_selection", "select_all"]
+f = ["save_selection", "find_next_char"]
+F = ["save_selection", "find_prev_char"]
+G = ["save_selection", "goto_last_line"]
+L = ["save_selection", "goto_line_end"]
+A = ["save_selection", "insert_at_line_end"]
+I = ["save_selection", "insert_at_line_start"]
+H = ["save_selection", "goto_first_nonwhitespace"]
+t = ["save_selection", "find_till_char"]
+T = ["save_selection", "till_prev_char"]
+
 [keys.select] # by pressing v in normal mode
+C-c = ["collapse_selection", "normal_mode"]
+
 tab = ["save_selection", "extend_parent_node_end"]
 S-tab = ["save_selection", "extend_parent_node_start"]
 f = ["save_selection", "find_next_char"]
 F = ["save_selection", "find_prev_char"]
-G = ["save_selection", "goto_last_line"] 
-C-c = ["collapse_selection", "normal_mode"]
-L = ["save_selection", "goto_line_end"] 
-H = ["save_selection", "goto_first_nonwhitespace"] 
+G = ["save_selection", "goto_last_line"]
+L = ["save_selection", "goto_line_end"]
+H = ["save_selection", "goto_first_nonwhitespace"]
 t = ["save_selection", "find_till_char"]
 T = ["save_selection", "till_prev_char"]
 
 [keys.insert]
-S-tab = ["save_selection", "move_parent_node_start"]
 C-c = "normal_mode"
 
-[keys.normal.space] 
-space = ":w"
-q = ":bc" 
-c = ":config-reload" # overwrite toggle block comment 
-Q = ":wq" 
+S-tab = ["save_selection", "move_parent_node_start"]
+
+[keys.normal.space]
+# space = ":w"
+c = ":config-reload" # overwrite toggle block comment
+q = ":bc"
+Q = ":wq"
 
 [keys.normal.space.o] # open commen files
-c = ":config-open" # overwrite toggle comment 
+c = ":config-open" # overwrite toggle comment
 
 ###########
 # ARCHIVE #
