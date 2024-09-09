@@ -54,5 +54,4 @@ language-servers = ["circom-lsp"]
 
 [[grammar]]
 name = "circom"
-# source = { git = "https://github.com/Decurity/tree-sitter-circom", rev = "c4df0664be207e2eae9f5507f9f5f00ea0a952c9" }
-source = { git = "https://github.com/Beaglefoot/tree-sitter-awk", rev = "a799bc5da7c2a84bc9a06ba5f3540cf1191e4ee3" }
+source = { git = "https://github.com/Decurity/tree-sitter-circom", rev = "02150524228b1e6afef96949f2d6b7cc0aaf999e" }
