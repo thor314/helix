@@ -5,11 +5,6 @@
 [language-server.gpt]
 command = "helix-gpt"
 
-[language-server.ts]
-command = "typescript-language-server"
-args = ["--stdio"]
-language-id = "javascript"
-
 # https://github.com/rubydusa/circom-lsp
 [language-server.circom-lsp]
 command = "circom-lsp"
@@ -26,7 +21,8 @@ text-width = 100
 
 [[language]]
 name = "typescript"
-language-servers = [ "ts", "gpt" ]
+language-servers = [ "typescript-language-server", "gpt" ]
+auto-format = true
 
 [[language]]
 name = "rust"
