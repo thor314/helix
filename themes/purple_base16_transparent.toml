@@ -1,0 +1,98 @@
+# Thor's transparent-purple theme
+# Author: https://github.com/thor314 <thorck@pm.me>
+# docs: https://docs.helix-editor.com/themes.html
+#
+# inspiration:
+# https://github.com/helix-editor/helix/blob/master/runtime/themes/base16_transparent.toml
+# https://github.com/helix-editor/helix/blob/master/runtime/themes/rose_pine_moon.toml
+# https://github.com/helix-editor/helix/blob/master/runtime/themes/monokai_pro_octagon.toml
+
+# for reference:
+# key = { fg = "#ffffff", bg = "#000000", underline = { color = "#ff0000", style = "curl"}, modifiers = ["bold", "italic"] }
+# key = "#ffffff" # foreground only
+
+"comment"                   = "light-gray"
+"variable"                  = "light-red"
+"constant.numeric"          = "yellow"
+"constant"                  = "yellow"
+"attribute"                 = "yellow"
+"type"                      = "light-yellow"
+"string"                    = "light-green"
+"variable.other.member"     = "green"
+"constant.character.escape" = "light-cyan"
+"function"                  = "light-blue"
+"constructor"               = "light-blue"
+"special"                   = "light-blue"
+"keyword"                   = "light-magenta"
+"label"                     = "light-magenta"
+"namespace"                 = "light-magenta"
+
+"info"    = "light-blue"
+"hint"    = "light-gray"
+"debug"   = "light-gray"
+"warning" = "light-yellow"
+"error"   = "light-red"
+
+[ui]
+"background"                   = { fg = "white" }
+"background.separator"         = { fg = "gray" }
+"text"                         = { fg = "light-gray" }
+"text.focus"                   = { fg = "white" }
+"menu"                         = { fg = "white" }
+"menu.selected"                = { modifiers = ["reversed"] }
+"menu.scroll"                  = { fg = "light-gray" }
+"linenr"                       = { fg = "light-gray" }
+"linenr.selected"              = { fg = "white", modifiers = ["bold"] }
+"popup"                        = { fg = "white" }
+"window"                       = { fg = "gray" }
+"selection"                    = { bg = "gray" }
+"statusline"                   = { fg = "white" }
+"statusline.inactive"          = { fg = "gray" }
+"statusline.normal"            = { fg = "black", bg = "blue" }
+"statusline.insert"            = { fg = "black", bg = "green" }
+"statusline.select"            = { fg = "black", bg = "magenta" }
+"help"                         = { fg = "light-gray" }
+"cursor"                       = { modifiers = ["reversed"] }
+"cursor.match"                 = { fg = "light-yellow", underline = { color = "light-yellow", style = "line" } }
+"cursor.primary"               = { modifiers = ["reversed", "slow_blink"] }
+"cursor.secondary"             = { modifiers = ["reversed"] }
+"cursorline.primary"           = { underline = { color = "light-gray", style = "line" } }
+"cursorline.secondary"         = { underline = { color = "light-gray", style = "line" } }
+"cursorcolumn.primary"         = { bg = "gray" }
+"cursorcolumn.secondary"       = { bg = "gray" }
+"virtual.ruler"                = { bg = "gray" }
+"virtual.whitespace"           = "gray"
+"virtual.indent-guide"         = "gray"
+"virtual.inlay-hint"           = { fg = "white", bg = "gray" }
+"virtual.inlay-hint.parameter" = { fg = "white", bg = "gray" }
+"virtual.inlay-hint.type"      = { fg = "white", bg = "gray" }
+"virtual.wrap"                 = "gray"
+"virtual.jump-label"           = { fg = "blue", modifiers = ["bold", "underlined"] }
+"gutter"                       = "gray"
+
+[markup]
+"heading"       = "light-blue"
+"list"          = "light-red"
+"bold"          = { fg = "light-yellow", modifiers = ["bold"] }
+"italic"        = { fg = "light-magenta", modifiers = ["italic"] }
+"strikethrough" = { modifiers = ["crossed_out"] }
+"link.url"      = { fg = "yellow", underline = { color = "yellow", style = "line" } }
+"link.text"     = "light-red"
+"quote"         = "light-cyan"
+"raw"           = "green"
+"normal"        = { fg = "blue" }
+"insert"        = { fg = "green" }
+"select"        = { fg = "magenta" }
+
+[diff]
+"plus"        = "light-green"
+"delta"       = "light-blue"
+"delta.moved" = "blue"
+"minus"       = "light-red"
+
+[diagnostic]
+"info"    = { underline = { color = "light-blue", style = "dotted" } }
+"hint"    = { underline = { color = "light-gray", style = "double_line" } }
+"debug"   = { underline = { color = "light-gray", style = "dashed" } }
+"warning" = { underline = { color = "light-yellow", style = "curl" } }
+"error"   = { underline = { color = "light-red", style = "curl" } }
