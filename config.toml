@@ -110,7 +110,7 @@ S-tab = ["save_selection", "move_parent_node_start"]
 
 [keys.normal.space]
 space = ":w"
-c     = ":config-reload" # overwrite toggle block comment
+c     = [":w", ":config-reload"] # overwrite toggle block comment
 r     = ":reload"
 q     = ":bc"
 Q     = ":wq"
