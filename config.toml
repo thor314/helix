@@ -17,9 +17,9 @@ popup-border = "all"      # whether to draw a border. popup menu all all
 
 [editor.statusline]
 left   = ["mode", "spacer", "diagnostics", "spacer", "workspace-diagnostics", "spacer", "version-control", "spacer", "spinner"]
-center = ["total-line-numbers", "spacer", "file-name", "spacer", "file-modification-indicator", "spacer", "read-only-indicator"]
-right  = ["register", "spacer", "primary-selection-length", "spacer", "position-percentage"]
-
+center = ["file-name", "spacer", "file-modification-indicator", "spacer", "read-only-indicator"]
+right  = ["register", "spacer", "primary-selection-length", "spacer", "selections", "spacer", "position", "total-line-numbers", "spacer", "position-percentage"]
+# "total-line-numbers", "spacer", 
 [editor.lsp]
 display-messages    = true # display lsp progress messages below statusline, slightly noisy info
 display-inlay-hints = true # display LSP inlay hints
