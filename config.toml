@@ -8,20 +8,47 @@ theme = "rose_transparent" # todo: better color choices, use rose_pine_moon as r
 
 [editor]
 # docs:  https://docs.helix-editor.com/editor.html
-line-number  = "relative" # absolute, relative
-rulers       = [100]      # where to display vertical rulers
-bufferline   = "multiple" # always, multiple, never; display open buffers at top
-color-modes  = true       # display the bottom left status bar helix-mode in color
-text-width   = 100        # used for :reflow
-popup-border = "all"      # whether to draw a border. popup menu all all
+line-number = "relative" # absolute, relative
+rulers = [100]           # where to display vertical rulers
+bufferline = "multiple"  # always, multiple, never; display open buffers at top
+color-modes = true       # display the bottom left status bar helix-mode in color
+text-width = 100         # used for :reflow
+popup-border = "all"     # whether to draw a border. popup menu all all
 
 [editor.statusline]
-left   = ["mode", "spacer", "diagnostics", "spacer", "workspace-diagnostics", "spacer", "version-control", "spacer", "spinner"]
-center = ["file-name", "spacer", "file-modification-indicator", "spacer", "read-only-indicator"]
-right  = ["register", "spacer", "primary-selection-length", "spacer", "selections", "spacer", "position", "total-line-numbers", "spacer", "position-percentage"]
+left = [
+  "mode",
+  "spacer",
+  "diagnostics",
+  "spacer",
+  "workspace-diagnostics",
+  "spacer",
+  "version-control",
+  "spacer",
+  "spinner",
+]
+center = [
+  "file-name",
+  "spacer",
+  "file-modification-indicator",
+  "spacer",
+  "read-only-indicator",
+]
+right = [
+  "register",
+  "spacer",
+  "primary-selection-length",
+  "spacer",
+  "selections",
+  "spacer",
+  "position",
+  "total-line-numbers",
+  "spacer",
+  "position-percentage",
+]
 # "total-line-numbers", "spacer", 
 [editor.lsp]
-display-messages    = true # display lsp progress messages below statusline, slightly noisy info
+display-messages = true    # display lsp progress messages below statusline, slightly noisy info
 display-inlay-hints = true # display LSP inlay hints
 
 [editor.cursor-shape] # by default, all are block
@@ -39,27 +66,41 @@ select = "underline"
 '`' = '`'
 
 [editor.auto-save]
-focus-lost         = true # save on losing window focus
+focus-lost = true         # save on losing window focus
 after-delay.enable = true # save after 3 seconds since last edit
 
 [editor.indent-guides]
-render    = true # show '|' character indent guides
+render = true   # show '|' character indent guides
 character = "┊"
 
 [editor.soft-wrap]
-enable             = true # wrap lines, don't extend infinitely to the right
+enable = true             # wrap lines, don't extend infinitely to the right
 wrap-at-text-width = true # wrap at text-width size
 
 ############
 # KEYBINDS #
 ############
 [keys.normal]
-C-t = ["delete_selection", "move_char_left", "paste_before", "move_char_right"] # transpose
-C-c = ["collapse_selection", "keep_primary_selection", "normal_mode"]           # hacky autosave and unselect
+C-t = [
+  "delete_selection",
+  "move_char_left",
+  "paste_before",
+  "move_char_right",
+] # transpose
+C-c = [
+  "collapse_selection",
+  "keep_primary_selection",
+  "normal_mode",
+] # hacky autosave and unselect
 A-c = "toggle_comments"
 
-A-d = ["extend_to_line_bounds", "yank", "paste_after", "move_line_down"] # duplicate line
-D   = ["select_mode", "goto_line_end", "delete_selection"]               # Kill rest of line
+A-d = [
+  "extend_to_line_bounds",
+  "yank",
+  "paste_after",
+  "move_line_down",
+] # duplicate line
+D = ["select_mode", "goto_line_end", "delete_selection"] # Kill rest of line
 
 C-A-s = ":write-all" # write all buffers
 
@@ -71,36 +112,36 @@ C-A-s = ":write-all" # write all buffers
 "A-?" = ":hsplit"
 'A-1' = "rotate_view"
 'A-h' = ":toggle lsp.display-inlay-hints"
-'{'   = ":buffer-previous"
-'}'   = ":buffer-next"
+'{' = ":buffer-previous"
+'}' = ":buffer-next"
 
 # movement adjustments - save selection to avoid losing place, helix has no undo last movement
-tab   = ["save_selection", "move_parent_node_end"]
+tab = ["save_selection", "move_parent_node_end"]
 S-tab = ["save_selection", "move_parent_node_start"]
-"%"   = ["save_selection", "select_all"]
-f     = ["save_selection", "find_next_char"]
-F     = ["save_selection", "find_prev_char"]
-G     = ["save_selection", "goto_last_line"]
-L     = ["save_selection", "goto_line_end"]
-A     = ["save_selection", "insert_at_line_end"]
-I     = ["save_selection", "insert_at_line_start"]
-H     = ["save_selection", "goto_first_nonwhitespace"]
-t     = ["save_selection", "find_till_char"]
-T     = ["save_selection", "till_prev_char"]
+"%" = ["save_selection", "select_all"]
+f = ["save_selection", "find_next_char"]
+F = ["save_selection", "find_prev_char"]
+G = ["save_selection", "goto_last_line"]
+L = ["save_selection", "goto_line_end"]
+A = ["save_selection", "insert_at_line_end"]
+I = ["save_selection", "insert_at_line_start"]
+H = ["save_selection", "goto_first_nonwhitespace"]
+t = ["save_selection", "find_till_char"]
+T = ["save_selection", "till_prev_char"]
 
 [keys.select] # by pressing v in normal mode
-# C-c = ["collapse_selection", "normal_mode"]
+C-c = ["collapse_selection", "normal_mode"]
 
 # movement adjustments
-tab   = ["save_selection", "extend_parent_node_end"]
+tab = ["save_selection", "extend_parent_node_end"]
 S-tab = ["save_selection", "extend_parent_node_start"]
-f     = ["save_selection", "find_next_char"]
-F     = ["save_selection", "find_prev_char"]
-G     = ["save_selection", "goto_last_line"]
-L     = ["save_selection", "goto_line_end"]
-H     = ["save_selection", "goto_first_nonwhitespace"]
-t     = ["save_selection", "find_till_char"]
-T     = ["save_selection", "till_prev_char"]
+f = ["save_selection", "find_next_char"]
+F = ["save_selection", "find_prev_char"]
+G = ["save_selection", "goto_last_line"]
+L = ["save_selection", "goto_line_end"]
+H = ["save_selection", "goto_first_nonwhitespace"]
+t = ["save_selection", "find_till_char"]
+T = ["save_selection", "till_prev_char"]
 
 [keys.insert]
 C-c = "normal_mode"
@@ -109,10 +150,10 @@ S-tab = ["save_selection", "move_parent_node_start"]
 
 [keys.normal.space]
 space = ":w"
-c     = [":w", ":config-reload"] # overwrite toggle block comment
-r     = ":reload"
-q     = ":bc"
-Q     = ":wq"
+c = [":w", ":config-reload"] # overwrite toggle block comment
+r = ":reload"
+q = ":bc"
+Q = ":wq"
 
 [keys.normal.space.o] # open commen files
 c = ":config-open"                        # overwrite toggle comment
