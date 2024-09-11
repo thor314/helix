@@ -37,7 +37,6 @@ select = "underline"
 '[' = ']'
 '"' = '"'
 '`' = '`'
-# '<' = '>'
 
 [editor.auto-save]
 focus-lost         = true # save on losing window focus
