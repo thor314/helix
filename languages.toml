@@ -16,22 +16,22 @@ command = "circom-lsp"
 # checkOnSave.features = "all" # d: null
 
 [[language]]
-name = "markdown"
+name       = "markdown"
 file-types = ["md"]
 text-width = 100
 
 [[language]]
-name = "typescript"
+name             = "typescript"
 language-servers = ["typescript-language-server", "gpt"]
-auto-format = true
+auto-format      = true
 
 [[language]]
-name = "toml"
+name      = "toml"
 formatter = { command = "taplo", args = ["fmt", "-"] }
-auto-format = true
+# auto-format = true
 
 [[language]]
-name = "rust"
+name             = "rust"
 language-servers = ["rust-analyzer", "gpt"]
 
 [language.auto-pairs]
@@ -44,16 +44,16 @@ language-servers = ["rust-analyzer", "gpt"]
 '|' = '|'
 
 [[language]]
-name = "circom"
-scope = "source.circom"
-injection-regex = "circom"
-file-types = ["circom"]
-roots = ["package.json"]
-comment-tokens = "//"
-indent = { tab-width = 4, unit = "    " }
-auto-format = false
+name             = "circom"
+scope            = "source.circom"
+injection-regex  = "circom"
+file-types       = ["circom"]
+roots            = ["package.json"]
+comment-tokens   = "//"
+indent           = { tab-width = 4, unit = "    " }
+auto-format      = false
 language-servers = ["circom-lsp"]
 
 [[grammar]]
-name = "circom"
+name   = "circom"
 source = { git = "https://github.com/Decurity/tree-sitter-circom", rev = "02150524228b1e6afef96949f2d6b7cc0aaf999e" }
