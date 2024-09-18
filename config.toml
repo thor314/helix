@@ -104,6 +104,8 @@ H     = "goto_first_nonwhitespace"
 [keys.insert]
 C-c = "normal_mode"
 S-tab = ["save_selection", "move_parent_node_start"]
+C-z = "undo"
+A-z = "redo"
 
 [keys.normal.space]
 space = ":w"
