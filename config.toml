@@ -104,8 +104,12 @@ H     = "goto_first_nonwhitespace"
 [keys.insert]
 C-c = "normal_mode"
 S-tab = ["save_selection", "move_parent_node_start"]
+"A-/"= "toggle_comments"
+
+# convenience: nice to be able to paste and undo in insert mode
 C-z = "undo"
 A-z = "redo"
+C-v = "paste_clipboard_before"
 
 [keys.normal.space]
 space = ":w"
@@ -115,20 +119,15 @@ q     = ":bc"
 Q     = ":wq"
 
 [keys.normal.space.o] # open commen files
-c = ":config-open"                        # overwrite toggle comment
-l = ":open ~/.files/helix/languages.toml"
-L = ":log-open"
+h = ":config-open" # overwrite toggle comment
+H = ":open ~/.files/helix/languages.toml"
+f = ":open ~/.files/fish/abbr.fish"
+F = ":open ~/.files/fish/config.fish"
+"." = ":open ~/.files/install.conf.yaml"
+u = ":open ~/.setup/unsorted.sh"
+C = ":open ~/.cron/crontab"
 
-###########
-# ARCHIVE #
-###########
-#[keys.normal."A-b"]
-#q = ":buffer-close" # also :bc
-#A-q = ":buffer-close!" # also :bc!
-## c = ":vsplit-new scratch" # new buffer in split # bug - runtime error
-#C = ":new" # scratch buffer
-#n = ":buffer-next"
-#p = ":buffer-previous"
-#k = ":buffer-next"
-#j = ":buffer-previous"
-#s = ":write-all" # write all buffers
+# some notes
+# rm open file: `:sh rm <C-r>%<ret>` - use the handy <C-r> to pick from registers
+# create file: `:sh touch <filename>` or `:n filename`
+
