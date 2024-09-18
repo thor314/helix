@@ -86,11 +86,13 @@
 [
   "."
   ","
+  ";"
 ] @punctuation.delimiter
 
 ; Operators
 ; https://docs.circom.io/circom-language/basic-operators
 [
+  "="
   "?"
   "&&"
   "||"
@@ -126,6 +128,7 @@
   "&="
   "|="
   ; "\~=" ; bug, uncomment and circom will not highlight
+  ; "~=" ; bug, uncomment and circom will not highlight
   "^="
   ">>="
   "<<="
