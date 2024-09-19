@@ -58,7 +58,8 @@ C-t = ["delete_selection", "move_char_left", "paste_before", "move_char_right"] 
 C-c = [ "collapse_selection", "keep_primary_selection" ] # collapse cursors and selection
 "A-/" = "toggle_comments"
 ";" = ["save_selection", "repeat_last_motion"] # similar to vim mode but no ',' ctrl-o to go back
-"A-;" = ["save_selection", "repeat_last_motion"] # similar to vim mode but no ',' ctrl-o to go back
+# After A-;, the next key is always collapse, annoying to collapse then press i/a
+"A-;" = ["flip_selections", "collapse_selection"] 
 
 A-d = ["extend_to_line_bounds", "yank", "paste_after", "move_line_down"] # duplicate line
 D   = ["select_mode", "goto_line_end", "delete_selection"]               # Kill rest of line
