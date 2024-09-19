@@ -52,7 +52,7 @@ roots            = ["package.json"]
 comment-tokens   = "//"
 indent           = { tab-width = 4, unit = "    " }
 auto-format      = false
-language-servers = ["circom-lsp"]
+language-servers = ["circom-lsp", "gpt"]
 
 [[grammar]]
 name   = "circom"
