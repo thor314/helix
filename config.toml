@@ -91,6 +91,7 @@ H     = "goto_first_nonwhitespace"
 
 [keys.select] # by pressing v in normal mode
 C-c = ["collapse_selection", "normal_mode"]
+"A-/" = "toggle_comments"
 
 # movement adjustments
 tab   = ["save_selection", "extend_parent_node_end"]
