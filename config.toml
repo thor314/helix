@@ -123,7 +123,7 @@ Q     = ":wq"
 
 [keys.normal.space.o] # open commen files
 h = ":config-open" # overwrite toggle comment
-H = ":open ~/.files/helix/languages.toml"
+H = ":open ~/.config/helix/languages.toml"
 f = ":open ~/.files/fish/abbr.fish"
 F = ":open ~/.files/fish/config.fish"
 "." = ":open ~/.files/install.conf.yaml"
