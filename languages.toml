@@ -35,13 +35,13 @@ name             = "rust"
 language-servers = ["rust-analyzer", "gpt"]
 
 [language.auto-pairs]
-'(' = ')'
+# '(' = ')'
 '{' = '}'
 '[' = ']'
 '"' = '"'
 '`' = '`'
-'<' = '>'
-'|' = '|'
+# '<' = '>'
+# '|' = '|'
 
 [[language]]
 name             = "circom"

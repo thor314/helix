@@ -58,8 +58,11 @@ C-t = ["delete_selection", "move_char_left", "paste_before", "move_char_right"] 
 C-c = [ "collapse_selection", "keep_primary_selection" ] # collapse cursors and selection
 "A-/" = "toggle_comments"
 ";" = ["save_selection", "repeat_last_motion"] # similar to vim mode but no ',' ctrl-o to go back
-# After A-;, the next key is always collapse, annoying to collapse then press i/a
+"," = "jump_backward" # poor-mans invert ';'
+
+## Collapse selection cheats: save a key press
 "A-;" = ["flip_selections", "collapse_selection"] 
+r = ["collapse_selection", "replace"] # common: find a char; just change a char
 
 A-d = ["extend_to_line_bounds", "yank", "paste_after", "move_line_down"] # duplicate line
 D   = ["select_mode", "goto_line_end", "delete_selection"]               # Kill rest of line
@@ -92,6 +95,8 @@ H     = "goto_first_nonwhitespace"
 [keys.select] # by pressing v in normal mode
 C-c = ["collapse_selection", "normal_mode"]
 "A-/" = "toggle_comments"
+";" = ["save_selection", "repeat_last_motion"] # similar to vim mode but no ',' ctrl-o to go back
+"," = "jump_backward" # poor-mans invert ';'
 
 # movement adjustments
 tab   = ["save_selection", "extend_parent_node_end"]
@@ -116,8 +121,7 @@ C-v = "paste_clipboard_before"
 
 [keys.normal.space]
 space = ":w"
-c     = [":w", ":config-reload"] # overwrite toggle block comment
-r     = ":reload-all" # convenient
+c     = [":w", ":config-reload", ":reload-all"] # overwrite toggle block comment
 q     = ":bc"
 Q     = ":wq"
 
