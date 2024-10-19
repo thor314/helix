@@ -175,27 +175,27 @@
 
 [palette]
 # base pallette:
-base           = "#191724"
-surface        = "#1f1d2e"
-overlay        = "#26233a"
-muted          = "#6e6a86"
-subtle         = "#908caa"
-text           = "#e0def4"
-love           = "#eb6f92"
-love_10        = "#311f30"
+base           = "#191724" # dark dark purple https://www.colorhexa.com/191724
+surface        = "#1f1d2e" # lovely dark purple https://www.colorhexa.com/1f1d2e
+overlay        = "#26233a" # lighter shade, dark purple https://www.colorhexa.com/26233a
+muted          = "#6e6a86" # light purple https://www.colorhexa.com/6e6a86
+subtle         = "#908caa" # light purple https://www.colorhexa.com/908caa
+text           = "#e0def4" # whitish purple
+love           = "#eb6f92" # reddish pink
+love_10        = "#311f30" # maroonish purple
 gold           = "#f6c177"
 gold_10        = "#30282c"
 rose           = "#ebbcba"
 rose_10        = "#2f2834"
-pine           = "#31748f"
+pine           = "#31748f" # turquoise blue
 pine_10        = "#1a2030"
-foam           = "#9ccfd8"
-foam_10        = "#252937"
-iris           = "#c4a7e7"
-iris_10        = "#2b2539"
-highlight_low  = "#21202e"
-highlight_med  = "#403d52"
-highlight_high = "#524f67"
+foam           = "#9ccfd8" # light foamy blue
+foam_10        = "#252937" # dark purplish navy blue
+iris           = "#c4a7e7" # light iris purple https://www.colorhexa.com/c4a7e7
+iris_10        = "#2b2539" # dark iris purple https://www.colorhexa.com/2b2539
+highlight_low  = "#21202e" # dark purple https://www.colorhexa.com/21202e
+highlight_med  = "#403d52" # medium dark accent purple https://www.colorhexa.com/403d52
+highlight_high = "#524f67" # lightish accent purple https://www.colorhexa.com/524f67
 
 # moon pallette:
 # base           = "#232136" 
