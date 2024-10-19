@@ -58,7 +58,7 @@ C-t = ["delete_selection", "move_char_left", "paste_before", "move_char_right"] 
 C-c = [ "collapse_selection", "keep_primary_selection" ] # collapse cursors and selection
 "A-/" = "toggle_comments"
 ";" = ["save_selection", "repeat_last_motion"] # similar to vim mode but no ',' ctrl-o to go back
-"," = "jump_backward" # poor-mans invert ';'
+"," = "collapse_selection" # C-c to collapse cursor and selection, ',' for just selection
 
 ## Collapse selection cheats: save a key press
 "A-;" = ["flip_selections", "collapse_selection"] 
@@ -95,8 +95,8 @@ H     = "goto_first_nonwhitespace"
 [keys.select] # by pressing v in normal mode
 C-c = ["collapse_selection", "normal_mode"]
 "A-/" = "toggle_comments"
-";" = ["save_selection", "repeat_last_motion"] # similar to vim mode but no ',' ctrl-o to go back
-"," = "jump_backward" # poor-mans invert ';'
+"," = "collapse_selection" # C-c to collapse cursor and selection, ',' for just selection
+# "," = "jump_backward" # poor-mans invert ';'
 
 # movement adjustments
 tab   = ["save_selection", "extend_parent_node_end"]
