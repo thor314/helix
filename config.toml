@@ -121,18 +121,20 @@ C-v = "paste_clipboard_before"
 
 [keys.normal.space]
 space = ":w"
-c     = [":w", ":config-reload", ":reload-all"] # overwrite toggle block comment
-q     = ":bc"
-Q     = ":wq"
+c     = [":config-reload", ":reload-all"] # overwrite comment
+C     = [":w", ":config-reload", ":reload-all"] # overwrite block comment
+# q     = ":bc"
+# Q     = ":wq"
 
 [keys.normal.space.o] # open commen files
-h = ":config-open" # overwrite toggle comment
+h = ":config-open"
 H = ":open ~/.config/helix/languages.toml"
 f = ":open ~/.files/fish/abbr.fish"
 F = ":open ~/.files/fish/config.fish"
 "." = ":open ~/.files/install.conf.yaml"
+p = ":open ~/.private/install.conf.yaml"
 u = ":open ~/.setup/unsorted.sh"
-C = ":open ~/.cron/crontab"
+c = ":open ~/.cron/crontab"
 
 # some notes
 # rm open file: `:sh rm <C-r>%<ret>` - use the handy <C-r> to pick from registers
