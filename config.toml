@@ -92,6 +92,15 @@ I     = "insert_at_line_start"
 L     = "goto_line_end"
 H     = "goto_first_nonwhitespace"
 
+# use system clipboard by default
+# ref:  https://github.com/helix-editor/helix/issues/2038
+p = "paste_clipboard_after"
+P = "paste_clipboard_before"
+y = "yank_to_clipboard"
+Y = "yank_joined_to_clipboard"
+R = "replace_selections_with_clipboard"
+d = ["yank_to_clipboard", "delete_selection_noyank"]
+
 [keys.select] # by pressing v in normal mode
 C-c = ["collapse_selection", "normal_mode"]
 "A-/" = "toggle_comments"
@@ -119,6 +128,14 @@ C-z = "undo"
 A-z = "redo"
 C-v = "paste_clipboard_before"
 
+# use system keyboard by default
+p = "paste_clipboard_after"
+P = "paste_clipboard_before"
+y = "yank_to_clipboard"
+Y = "yank_joined_to_clipboard"
+R = "replace_selections_with_clipboard"
+d = ["yank_to_clipboard", "delete_selection_noyank"]
+
 [keys.normal.space]
 space = ":w"
 c     = [":config-reload", ":reload-all"] # overwrite comment
@@ -139,4 +156,4 @@ c = ":open ~/.cron/crontab"
 # some notes
 # rm open file: `:sh rm <C-r>%<ret>` - use the handy <C-r> to pick from registers
 # create file: `:sh touch <filename>` or `:n filename`
-
+# l g
