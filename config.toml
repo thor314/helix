@@ -127,7 +127,8 @@ R = "replace_selections_with_clipboard"
 d = ["yank_to_clipboard", "delete_selection_noyank"]
 
 [keys.insert]
-C-c = "normal_mode"
+C-c = "normal_mode" # use esc to dismiss hover AND normal-mode
+# C-c = "escape"
 S-tab = ["save_selection", "move_parent_node_start"]
 "A-/"= "toggle_comments"
 
